@@ -611,13 +611,87 @@
   .search-bar:focus { border-color: var(--gold); }
   .filter-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
 
+  /* ── MOBILE OVERLAY ─────────────────────────────── */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 99;
+    backdrop-filter: blur(2px);
+  }
+  .sidebar-overlay.open { display: block; }
+
   @media (max-width: 768px) {
+    /* Sidebar */
     .sidebar { transform: translateX(-100%); }
     .sidebar.open { transform: translateX(0); }
     .main-content { margin-left: 0; }
+
+    /* Topbar */
+    .topbar { padding: 0 14px; height: 56px; }
+    .topbar-title { font-size: 16px; }
+    .admin-badge span { display: none; }
+    .admin-badge { padding: 6px 10px; }
+    #hamburger { display: flex !important; }
+
+    /* Page content */
+    .page-content { padding: 14px; }
+
+    /* Stats grid */
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .stat-card { padding: 16px; }
+    .stat-value { font-size: 26px; }
+    .stat-icon { font-size: 24px; }
+
+    /* Section header */
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .section-header .btn { width: 100%; justify-content: center; }
+
+    /* Filter bar */
+    .filter-bar { flex-direction: column; gap: 8px; }
+    .search-bar { width: 100% !important; }
+
+    /* Forms */
     .form-row { grid-template-columns: 1fr; }
-    .topbar { padding: 0 16px; }
-    .page-content { padding: 16px; }
+
+    /* Tables — scroll horizontally */
+    .data-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { min-width: 520px; }
+    .data-table th, .data-table td { padding: 10px 12px; font-size: 13px; }
+
+    /* Action buttons */
+    .action-btns { flex-wrap: wrap; gap: 4px; }
+
+    /* Modal */
+    .modal { max-height: 95vh; border-radius: 12px; }
+    .modal-body { padding: 16px; }
+    .modal-header { padding: 16px 16px 12px; }
+    .modal-footer { padding: 12px 16px 16px; flex-wrap: wrap; }
+    .modal-footer .btn { flex: 1; justify-content: center; }
+
+    /* Toast */
+    #toast-container { bottom: 14px; right: 14px; left: 14px; }
+    .toast { min-width: unset; width: 100%; }
+
+    /* Login */
+    .login-box { padding: 32px 20px; margin: 0 16px; }
+
+    /* Quick start grid */
+    #page-dashboard > div:last-child > div { grid-template-columns: 1fr !important; }
+
+    /* Settings */
+    #page-settings > div { max-width: 100% !important; }
+  }
+
+  @media (max-width: 400px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-value { font-size: 32px; }
   }
 </style>
 </head>
@@ -651,6 +725,7 @@
 </div>
 
 <div id="app">
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
       <img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI">
@@ -1074,11 +1149,13 @@ function showPage(name) {
   });
   if (window.innerWidth < 768) {
     document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('open');
   }
 }
 
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebar-overlay').classList.toggle('open');
 }
 
 // ── STATS ─────────────────────────────────────────────────────
@@ -1169,29 +1246,71 @@ function editActivity(id) {
   if (a) openActivityModal(a);
 }
 
+// ── IMAGE HELPERS ─────────────────────────────────────────────
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      // Strip the data:mime;base64, prefix — send raw base64 only
+      const base64 = reader.result.split(',')[1];
+      resolve(base64);
+    };
+    reader.onerror = () => reject(new Error('FileReader error'));
+    reader.readAsDataURL(file);
+  });
+}
+
 async function saveActivity() {
   const btn = document.getElementById('save-activity-btn');
   btn.innerHTML = '<span class="loading-spinner"></span>';
   btn.disabled = true;
 
   const id = document.getElementById('activity-id').value;
-  const fd = new FormData();
-  fd.append('title_ar', document.getElementById('activity-title-ar').value);
-  fd.append('title_en', document.getElementById('activity-title-en').value);
-  fd.append('date', document.getElementById('activity-date').value);
-  fd.append('description_ar', document.getElementById('activity-desc-ar').value);
-  fd.append('description_en', document.getElementById('activity-desc-en').value);
-  fd.append('link', document.getElementById('activity-link').value);
-  fd.append('display_order', document.getElementById('activity-order').value);
-  const img = document.getElementById('activity-image').files[0];
-  if (img) fd.append('image', img);
+  const imgFile = document.getElementById('activity-image').files[0];
   const imgUrl = document.getElementById('activity-image-url').value.trim();
-  if (imgUrl) fd.append('image_url_input', imgUrl);
+
+  // Convert local file to base64 if selected
+  let imageBase64 = null;
+  let imageMime = null;
+  if (imgFile) {
+    try {
+      imageBase64 = await fileToBase64(imgFile);
+      imageMime = imgFile.type;
+    } catch(e) {
+      toast('Failed to read image file', 'error');
+      btn.innerHTML = '<i class="fa fa-save"></i> Save Activity';
+      btn.disabled = false;
+      return;
+    }
+  }
+
+  // Build payload — try JSON first (with base64), fallback to FormData
+  const body = new FormData();
+  body.append('title_ar', document.getElementById('activity-title-ar').value);
+  body.append('title_en', document.getElementById('activity-title-en').value);
+  body.append('date', document.getElementById('activity-date').value);
+  body.append('description_ar', document.getElementById('activity-desc-ar').value);
+  body.append('description_en', document.getElementById('activity-desc-en').value);
+  body.append('link', document.getElementById('activity-link').value);
+  body.append('display_order', document.getElementById('activity-order').value);
+
+  if (imgFile) {
+    body.append('image', imgFile);
+  }
+  if (imgUrl) {
+    body.append('image_url_input', imgUrl);
+  }
+  if (imageBase64) {
+    body.append('image_base64', imageBase64);
+    body.append('image_mime', imageMime);
+  }
 
   try {
-    const url = id ? `https://eyadmoneim-ldi-website.hf.space/api/activities/${id}` : `https://eyadmoneim-ldi-website.hf.space/api/activities`;
+    const url = id
+      ? `https://eyadmoneim-ldi-website.hf.space/api/activities/${id}`
+      : `https://eyadmoneim-ldi-website.hf.space/api/activities`;
     const method = id ? 'PUT' : 'POST';
-    const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body: fd });
+    const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body });
     if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Error'); }
     toast('Activity saved successfully!', 'success');
     closeModal('activity-modal');
@@ -1300,13 +1419,33 @@ async function saveClient() {
   btn.disabled = true;
 
   const id = document.getElementById('client-id').value;
+  const logoFile = document.getElementById('client-logo').files[0];
+
+  // Convert local file to base64 if selected
+  let imageBase64 = null;
+  let imageMime = null;
+  if (logoFile) {
+    try {
+      imageBase64 = await fileToBase64(logoFile);
+      imageMime = logoFile.type;
+    } catch(e) {
+      toast('Failed to read logo file', 'error');
+      btn.innerHTML = '<i class="fa fa-save"></i> Save Client';
+      btn.disabled = false;
+      return;
+    }
+  }
+
   const fd = new FormData();
   fd.append('name', document.getElementById('client-name').value);
   fd.append('category', document.getElementById('client-category').value);
   fd.append('display_order', document.getElementById('client-order').value);
   fd.append('logo_url_external', document.getElementById('client-logo-url').value);
-  const logo = document.getElementById('client-logo').files[0];
-  if (logo) fd.append('logo', logo);
+  if (logoFile) fd.append('logo', logoFile);
+  if (imageBase64) {
+    fd.append('logo_base64', imageBase64);
+    fd.append('logo_mime', imageMime);
+  }
 
   try {
     const url = id ? `https://eyadmoneim-ldi-website.hf.space/api/clients/${id}` : `https://eyadmoneim-ldi-website.hf.space/api/clients`;
@@ -1429,9 +1568,11 @@ function esc(s) {
 checkAuth();
 
 // Responsive
-if (window.innerWidth < 768) {
-  document.getElementById('hamburger').style.display = 'flex';
+function updateHamburger() {
+  document.getElementById('hamburger').style.display = window.innerWidth < 768 ? 'flex' : 'none';
 }
+updateHamburger();
+window.addEventListener('resize', updateHamburger);
 </script>
 </body>
 </html>
