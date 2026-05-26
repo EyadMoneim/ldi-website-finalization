@@ -134,7 +134,7 @@ const texts = {
     fl_contact: "اتصل بنا",
 
     important_links: [
-      { text: "المجلس الاعلي للجامعات", href: "https://scu.eg/" },
+      { text: "المجلس الاعلي للجامعات", href: "https://scu.eg/", target: "_blank" },
       { text: "مجلس ادارة المعهد", href: "board_index.html" },
       { text: "الفريق التقني", href: "tech_team.html" },
       { text: "شركاؤنا", href: "clients_index.html" },
@@ -405,7 +405,7 @@ const texts = {
     fl_contact: "Contact Us",
 
     important_links: [
-      { text: "Supreme Council of Universities", href: "https://scu.eg/" },
+      { text: "Supreme Council of Universities", href: "https://scu.eg/" , target: "_blank" },
       { text: "High Board", href: "board_index.html" },
       { text: "Technical Team", href: "tech_team.html" },
       { text: "Partners", href: "clients_index.html" },
@@ -1096,3 +1096,98 @@ function toggleSubMenu(element) {
         icon.style.transform = 'rotate(0)';
     }
 }
+
+// =====================================================
+// ============ FETCH DYNAMIC DATA (API) ===============
+// =====================================================
+
+const API_URL = 'https://eyadmoneim-ldi-website.hf.space';
+let globalActivities = [];
+
+// دالة مساعدة لتحويل الأرقام للعربي
+const toArabicDigits = (n) => n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+// دالة تنسيق التاريخ المطلوبة
+function formatDate(dateStr, lang) {
+    const date = new Date(dateStr);
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const monthIndex = date.getMonth();
+
+    if (lang === 'ar') {
+        const monthAr = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+        return `${toArabicDigits(day)} ${monthAr[monthIndex]} ${toArabicDigits(year)}`;
+    } else {
+        const monthEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return `${monthEn[monthIndex]} ${day}, ${year}`;
+    }
+}
+
+async function loadDynamicActivities() {
+    const container = document.querySelector('.events-grid-container');
+    if (!container) return; 
+
+    try {
+        const response = await fetch(`${API_URL}/api/activities/public`);
+        globalActivities = await response.json();
+        renderDynamicActivities();
+    } catch (error) {
+        console.error('Error fetching activities:', error);
+        container.innerHTML = '<p style="text-align:center; padding: 40px;">حدث خطأ في الاتصال بالخادم.</p>';
+    }
+}
+
+function renderDynamicActivities() {
+    const container = document.querySelector('.events-grid-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    const currentLang = localStorage.getItem("preferredLang") || "ar";
+
+    if (globalActivities.length === 0) {
+        const noActMsg = currentLang === 'ar' ? 'لا توجد أنشطة مضافة حالياً.' : 'No activities available right now.';
+        container.innerHTML = `<h3 style="text-align:center; width:100%; padding: 40px;">${noActMsg}</h3>`;
+        return;
+    }
+
+    globalActivities.forEach(activity => {
+        const title = currentLang === 'ar' ? activity.title_ar : (activity.title_en || activity.title_ar);
+        const desc = currentLang === 'ar' ? activity.description_ar : (activity.description_en || activity.description_ar);
+        const formattedDate = formatDate(activity.date, currentLang);
+        
+        // نص زر اقرأ المزيد مع السهم
+        const readMoreText = currentLang === 'ar' ? 'اقرأ المزيد ←' : 'Read More →';
+        
+        const imgUrl = activity.image_url || 'https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkyX7P9rQ5TaUSoGmYzxlrg7iQ31CLn8XqyOpe'; 
+        
+        // زرار اقرأ المزيد
+        const link = activity.link ? `<a href="${activity.link}" target="_blank" style="display:inline-block; margin-top:15px; color:var(--accent-gold); font-weight:bold; text-decoration:none;">${readMoreText}</a>` : '';
+
+        const cardHTML = `
+            <div class="card-event">
+                <div class="image-box">
+                    <img src="${imgUrl}" alt="${title}">
+                </div>
+                <div class="info">
+                    <span class="date" style="display:block; margin-bottom:8px; color:var(--text-muted); font-size:0.8rem;">${formattedDate}</span>
+                    <h3 class="title">${title}</h3>
+                    <p class="description">${desc}</p>
+                    ${link}
+                </div>
+            </div>
+        `;
+        container.innerHTML += cardHTML;
+    });
+}
+
+const _origSetLangAPI = typeof window.setLanguage === 'function' ? window.setLanguage : null;
+if (_origSetLangAPI) {
+  window.setLanguage = function(lang) {
+    _origSetLangAPI(lang);
+    renderDynamicActivities();
+  };
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    loadDynamicActivities();
+});

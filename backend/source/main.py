@@ -60,6 +60,7 @@ def get_db():
     return conn
 
 def init_db():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = get_db()
     c = conn.cursor()
     

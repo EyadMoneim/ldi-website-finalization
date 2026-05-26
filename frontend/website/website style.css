@@ -601,6 +601,14 @@ body.dark-mode .moon-icon {
 }
 
 
+
+
+@media (max-width: 768px) {
+    #yassen-card {
+        order: -1 !important;
+    }
+}
+
 /* Slogan card */
 
 .about-card.slogan {

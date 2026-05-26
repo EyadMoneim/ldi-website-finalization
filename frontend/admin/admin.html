@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LDI Admin Panel</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="https://f49838zn07.ufs.sh/f/kOegvl1c9uGzv546sfh4VTylgxjnRc2uDEYBZU3r6J9qefI0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
@@ -622,7 +623,6 @@
 </head>
 <body>
 
-<!-- ── LOGIN SCREEN ─────────────────────────────────────── -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">
@@ -650,7 +650,6 @@
   </div>
 </div>
 
-<!-- ── MAIN APP ──────────────────────────────────────────── -->
 <div id="app">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
@@ -705,7 +704,6 @@
 
     <div class="page-content">
 
-      <!-- ── DASHBOARD ───────────────────────── -->
       <div class="page active" id="page-dashboard">
         <div class="stats-grid">
           <div class="stat-card">
@@ -751,7 +749,6 @@
         </div>
       </div>
 
-      <!-- ── ACTIVITIES ────────────────────────── -->
       <div class="page" id="page-activities">
         <div class="section-header">
           <div class="section-title"><i class="fa fa-calendar-alt"></i> Activities</div>
@@ -780,7 +777,6 @@
         </div>
       </div>
 
-      <!-- ── CLIENTS ───────────────────────────── -->
       <div class="page" id="page-clients">
         <div class="section-header">
           <div class="section-title"><i class="fa fa-building"></i> Clients & Partners</div>
@@ -816,7 +812,6 @@
         </div>
       </div>
 
-      <!-- ── SETTINGS ──────────────────────────── -->
       <div class="page" id="page-settings">
         <div style="max-width:500px;">
           <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px;">
@@ -856,12 +851,7 @@
         </div>
       </div>
 
-    </div><!-- /page-content -->
-  </div><!-- /main-content -->
-</div><!-- /app -->
-
-<!-- ── ACTIVITY MODAL ─────────────────────────────────────── -->
-<div class="modal-overlay" id="activity-modal">
+    </div></div></div><div class="modal-overlay" id="activity-modal">
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title"><i class="fa fa-calendar-alt"></i> <span id="activity-modal-title">Add Activity</span></div>
@@ -930,7 +920,6 @@
   </div>
 </div>
 
-<!-- ── CLIENT MODAL ───────────────────────────────────────── -->
 <div class="modal-overlay" id="client-modal">
   <div class="modal">
     <div class="modal-header">
@@ -987,7 +976,6 @@
   </div>
 </div>
 
-<!-- ── CONFIRM DIALOG ─────────────────────────────────────── -->
 <div id="confirm-overlay">
   <div id="confirm-box">
     <i class="fa fa-exclamation-triangle"></i>
@@ -1000,11 +988,10 @@
   </div>
 </div>
 
-<!-- ── TOAST CONTAINER ───────────────────────────────────── -->
 <div id="toast-container"></div>
 
 <script>
-const API = 'http://localhost:8000';
+const API = 'https://eyadmoneim-ldi-website.hf.space';
 let token = localStorage.getItem('ldi_admin_token');
 let allActivities = [];
 let allClients = [];
@@ -1023,7 +1010,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   fd.append('password', document.getElementById('login-password').value);
 
   try {
-    const res = await fetch(`${API}/api/auth/login`, { method: 'POST', body: fd });
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/auth/login`, { method: 'POST', body: fd });
     if (!res.ok) throw new Error('Invalid credentials');
     const data = await res.json();
     token = data.token;
@@ -1041,7 +1028,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 async function checkAuth() {
   if (!token) return;
   try {
-    const res = await fetch(`${API}/api/auth/me`, {
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/auth/me`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (res.ok) {
@@ -1109,7 +1096,7 @@ async function loadStats() {
 // ── ACTIVITIES ────────────────────────────────────────────────
 async function loadActivities() {
   try {
-    const res = await fetch(`${API}/api/activities`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/activities`, { headers: { 'Authorization': `Bearer ${token}` } });
     allActivities = await res.json();
     renderActivities(allActivities);
   } catch(e) {
@@ -1202,7 +1189,7 @@ async function saveActivity() {
   if (imgUrl) fd.append('image_url_input', imgUrl);
 
   try {
-    const url = id ? `${API}/api/activities/${id}` : `${API}/api/activities`;
+    const url = id ? `https://eyadmoneim-ldi-website.hf.space/api/activities/${id}` : `https://eyadmoneim-ldi-website.hf.space/api/activities`;
     const method = id ? 'PUT' : 'POST';
     const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body: fd });
     if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Error'); }
@@ -1218,7 +1205,7 @@ async function saveActivity() {
 async function deleteActivity(id, name) {
   if (!window.confirm(`Delete activity "${name}"? This cannot be undone.`)) return;
   try {
-    const res = await fetch(`${API}/api/activities/${id}`, {
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/activities/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -1232,7 +1219,7 @@ async function deleteActivity(id, name) {
 // ── CLIENTS ───────────────────────────────────────────────────
 async function loadClients() {
   try {
-    const res = await fetch(`${API}/api/clients`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/clients`, { headers: { 'Authorization': `Bearer ${token}` } });
     allClients = await res.json();
     renderClients(allClients);
   } catch {
@@ -1322,7 +1309,7 @@ async function saveClient() {
   if (logo) fd.append('logo', logo);
 
   try {
-    const url = id ? `${API}/api/clients/${id}` : `${API}/api/clients`;
+    const url = id ? `https://eyadmoneim-ldi-website.hf.space/api/clients/${id}` : `https://eyadmoneim-ldi-website.hf.space/api/clients`;
     const method = id ? 'PUT' : 'POST';
     const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body: fd });
     if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Error'); }
@@ -1338,7 +1325,7 @@ async function saveClient() {
 async function deleteClient(id, name) {
   if (!window.confirm(`Delete client "${name}"? This cannot be undone.`)) return;
   try {
-    const res = await fetch(`${API}/api/clients/${id}`, {
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/clients/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -1359,7 +1346,7 @@ document.getElementById('change-pw-form').addEventListener('submit', async (e) =
   fd.append('current_password', document.getElementById('current-pw').value);
   fd.append('new_password', np);
   try {
-    const res = await fetch(`${API}/api/auth/change-password`, {
+    const res = await fetch(`https://eyadmoneim-ldi-website.hf.space/api/auth/change-password`, {
       method: 'POST', headers: { 'Authorization': `Bearer ${token}` }, body: fd
     });
     if (!res.ok) { const e = await res.json(); throw new Error(e.detail); }
