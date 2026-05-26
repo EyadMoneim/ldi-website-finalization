@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <title id="title3"></title>
+    <link rel="stylesheet" href="website style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ===== LDI LOADER ===== -->
+    <style>
+        /* ─── LOCK BODY ─────────────────────────────── */
+        
+        body.ldi-loading {
+            overflow: hidden;
+        }
+        /* ─── FULL-SCREEN OVERLAY ───────────────────── */
+        
+        #ldi-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at 30% 40%, #081636 0%, #908888 55%, #0a0e39 100%);
+            overflow: hidden;
+            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #ldi-loader.ldi-hide {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.05);
+            pointer-events: none;
+        }
+        /* ─── STARFIELD ──────────────────────────────── */
+        
+        #ldi-stars {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .ldi-star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            animation: ldiStarTwinkle ease-in-out infinite;
+        }
+        
+        @keyframes ldiStarTwinkle {
+            0%,
+            100% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
+        /* ─── GOLDEN DUST PARTICLES ──────────────────── */
+        
+        .ldi-dust {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: ldiDustRise linear infinite;
+        }
+        
+        @keyframes ldiDustRise {
+            0% {
+                transform: translateY(110vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-15vh) translateX(var(--dx, 0px)) scale(1.6);
+                opacity: 0;
+            }
+        }
+        /* ─── ROTATING SEALS (rings) ─────────────────── */
+        
+        .ldi-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+        }
+        
+        .ldi-ring-1 {
+            width: 460px;
+            height: 460px;
+            border-color: rgba(212, 160, 23, 0.18);
+            animation: ldiSpin 18s linear infinite;
+            box-shadow: 0 0 30px rgba(212, 160, 23, 0.05), inset 0 0 30px rgba(212, 160, 23, 0.03);
+        }
+        
+        .ldi-ring-2 {
+            width: 400px;
+            height: 400px;
+            border-style: dashed;
+            border-color: rgba(212, 160, 23, 0.12);
+            animation: ldiSpin 12s linear infinite reverse;
+        }
+        
+        .ldi-ring-3 {
+            width: 340px;
+            height: 340px;
+            border-color: rgba(74, 143, 212, 0.18);
+            animation: ldiSpin 8s linear infinite;
+        }
+        
+        .ldi-ring-4 {
+            width: 280px;
+            height: 280px;
+            border-color: rgba(212, 160, 23, 0.25);
+            animation: ldiPulseRing 3s ease-in-out infinite;
+        }
+        
+        .ldi-ring-5 {
+            width: 230px;
+            height: 230px;
+            border-color: rgba(74, 143, 212, 0.15);
+            animation: ldiPulseRing 2.5s ease-in-out 0.5s infinite reverse;
+        }
+        
+        @keyframes ldiSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes ldiPulseRing {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: scale(1.06);
+                opacity: 1;
+            }
+        }
+        /* ─── ORBITING DOTS ──────────────────────────── */
+        
+        .ldi-orbit {
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .ldi-orbit-a {
+            width: 420px;
+            height: 420px;
+            animation: ldiSpin 4s linear infinite;
+        }
+        
+        .ldi-orbit-a::before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f5d060, #d4a017);
+            box-shadow: 0 0 20px 6px rgba(212, 160, 23, 0.8), 0 0 40px 10px rgba(212, 160, 23, 0.4);
+        }
+        
+        .ldi-orbit-b {
+            width: 360px;
+            height: 360px;
+            animation: ldiSpin 7s linear infinite reverse;
+        }
+        
+        .ldi-orbit-b::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #80c0ff, #4a8fd4);
+            box-shadow: 0 0 16px 5px rgba(74, 143, 212, 0.8);
+        }
+        
+        .ldi-orbit-c {
+            width: 300px;
+            height: 300px;
+            animation: ldiSpin 5.5s linear infinite;
+        }
+        
+        .ldi-orbit-c::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff8e0, #d4a017);
+            box-shadow: 0 0 12px 4px rgba(212, 160, 23, 0.6);
+        }
+        /* ─── LOGO BURST GLOW ────────────────────────── */
+        
+        .ldi-glow-core {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.20) 0%, rgba(26, 61, 109, 0.15) 45%, transparent 72%);
+            animation: ldiGlowPulse 2.8s ease-in-out infinite;
+            filter: blur(8px);
+        }
+        
+        @keyframes ldiGlowPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.25);
+                opacity: 1;
+            }
+        }
+        /* ─── LOGO WRAP ──────────────────────────────── */
+        
+        .ldi-logo-wrap {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* ─── LOGO IMAGE ─────────────────────────────── */
+        
+        .ldi-logo-img {
+            width: 210px;
+            height: 210px;
+            object-fit: contain;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.3) rotate(-25deg);
+            animation: ldiLogoIn 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards, ldiLogoFloat 4.5s ease-in-out 1.5s infinite;
+            filter: drop-shadow(0 0 40px rgba(212, 160, 23, 0.6)) drop-shadow(0 0 80px rgba(212, 160, 23, 0.3)) drop-shadow(0 0 120px rgba(212, 160, 23, 0.1)) brightness(1.1);
+        }
+        
+        @keyframes ldiLogoIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-25deg);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.08) rotate(4deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        @keyframes ldiLogoFloat {
+            0%,
+            100% {
+                transform: translateY(0px);
+                filter: drop-shadow(0 0 40px rgba(212, 160, 23, 0.6)) drop-shadow(0 0 80px rgba(212, 160, 23, 0.3)) brightness(1.1);
+            }
+            50% {
+                transform: translateY(-14px);
+                filter: drop-shadow(0 0 55px rgba(212, 160, 23, 0.8)) drop-shadow(0 0 100px rgba(212, 160, 23, 0.4)) brightness(1.2);
+            }
+        }
+        /* ─── SHIMMER FLASH on logo appear ──────────────── */
+        
+        .ldi-logo-wrap::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 240, 150, 0.7), transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: ldiBurst 0.6s ease-out 1.1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes ldiBurst {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.9;
+            }
+            100% {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+        /* ─── TITLE LINE ─────────────────────────────── */
+        
+        .ldi-title-ar {
+            margin-top: 22px;
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-align: center;
+            background: linear-gradient(135deg, #c8920a 0%, #f5d060 30%, #fffbe0 50%, #f5d060 70%, #c8920a 100%);
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            transform: translateY(22px);
+            animation: ldiFadeUp 0.7s ease 1.0s forwards, ldiShimmer 3.5s linear 1.8s infinite;
+            text-shadow: none;
+        }
+        
+        .ldi-title-en {
+            margin-top: 5px;
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-align: center;
+            color: rgba(212, 160, 23, 0.6);
+            opacity: 0;
+            transform: translateY(14px);
+            animation: ldiFadeUp 0.7s ease 1.3s forwards;
+            text-transform: uppercase;
+        }
+        
+        .ldi-tagline {
+            margin-top: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.08em;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: ldiFadeUp 0.7s ease 1.55s forwards;
+        }
+        
+        @keyframes ldiFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes ldiShimmer {
+            to {
+                background-position: 250% center;
+            }
+        }
+        /* ─── PROGRESS BAR ───────────────────────────── */
+        
+        .ldi-progress-wrap {
+            margin-top: 38px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            animation: ldiFadeUp 0.6s ease 1.6s forwards;
+        }
+        
+        .ldi-bar-track {
+            width: min(260px, 60vw);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            overflow: visible;
+            position: relative;
+        }
+        
+        .ldi-bar-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #1a3d6d 0%, #d4a017 50%, #f5d060 100%);
+            box-shadow: 0 0 12px rgba(212, 160, 23, 0.7);
+            animation: ldiBarFill 3.2s cubic-bezier(0.3, 0, 0.2, 1) 0.5s forwards;
+            position: relative;
+        }
+        
+        .ldi-bar-fill::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #f5d060;
+            box-shadow: 0 0 12px 4px rgba(245, 208, 96, 0.8);
+        }
+        
+        @keyframes ldiBarFill {
+            0% {
+                width: 0%;
+            }
+            40% {
+                width: 55%;
+            }
+            70% {
+                width: 80%;
+            }
+            90% {
+                width: 96%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        /* ─── LOADING DOTS ───────────────────────────── */
+        
+        .ldi-dots {
+            display: flex;
+            gap: 9px;
+        }
+        
+        .ldi-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(212, 160, 23, 0.35);
+            animation: ldiDot 1.4s ease-in-out infinite;
+        }
+        
+        .ldi-dots span:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .ldi-dots span:nth-child(2) {
+            animation-delay: 0.22s;
+        }
+        
+        .ldi-dots span:nth-child(3) {
+            animation-delay: 0.44s;
+        }
+        
+        @keyframes ldiDot {
+            0%,
+            80%,
+            100% {
+                transform: scale(0.6);
+                background: rgba(212, 160, 23, 0.25);
+            }
+            40% {
+                transform: scale(1.4);
+                background: #d4a017;
+                box-shadow: 0 0 12px rgba(212, 160, 23, 0.7);
+            }
+        }
+        /* ─── CORNER ACCENTS ─────────────────────────── */
+        
+        .ldi-corner {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            opacity: 0;
+            animation: ldiFadeUp 0.5s ease 0.2s forwards;
+        }
+        
+        .ldi-corner.tl {
+            top: 28px;
+            left: 28px;
+            border-top: 2px solid rgba(212, 160, 23, 0.5);
+            border-left: 2px solid rgba(212, 160, 23, 0.5);
+        }
+        
+        .ldi-corner.tr {
+            top: 28px;
+            right: 28px;
+            border-top: 2px solid rgba(212, 160, 23, 0.5);
+            border-right: 2px solid rgba(212, 160, 23, 0.5);
+        }
+        
+        .ldi-corner.bl {
+            bottom: 28px;
+            left: 28px;
+            border-bottom: 2px solid rgba(212, 160, 23, 0.5);
+            border-left: 2px solid rgba(212, 160, 23, 0.5);
+        }
+        
+        .ldi-corner.br {
+            bottom: 28px;
+            right: 28px;
+            border-bottom: 2px solid rgba(212, 160, 23, 0.5);
+            border-right: 2px solid rgba(212, 160, 23, 0.5);
+        }
+        /* ─── SCAN LINE ──────────────────────────────── */
+        
+        .ldi-scanline {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.35) 40%, rgba(212, 160, 23, 0.35) 60%, transparent);
+            animation: ldiScan 4s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes ldiScan {
+            0% {
+                top: -2px;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+        /* ─── RESPONSIVE ─────────────────────────────── */
+        
+        @media (max-width: 480px) {
+            .ldi-ring-1 {
+                width: 320px;
+                height: 320px;
+            }
+            .ldi-ring-2 {
+                width: 280px;
+                height: 280px;
+            }
+            .ldi-ring-3 {
+                width: 240px;
+                height: 240px;
+            }
+            .ldi-ring-4 {
+                width: 200px;
+                height: 200px;
+            }
+            .ldi-ring-5 {
+                width: 165px;
+                height: 165px;
+            }
+            .ldi-orbit-a {
+                width: 300px;
+                height: 300px;
+            }
+            .ldi-orbit-b {
+                width: 260px;
+                height: 260px;
+            }
+            .ldi-orbit-c {
+                width: 215px;
+                height: 215px;
+            }
+            .ldi-logo-img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ===== LDI LOADER HTML ===== -->
+    <div id="ldi-loader" aria-hidden="true" role="progressbar">
+        <!-- Corner accents -->
+        <div class="ldi-corner tl"></div>
+        <div class="ldi-corner tr"></div>
+        <div class="ldi-corner bl"></div>
+        <div class="ldi-corner br"></div>
+        <!-- Scan line -->
+        <div class="ldi-scanline"></div>
+        <!-- Stars -->
+        <div id="ldi-stars"></div>
+        <!-- Rings -->
+        <div class="ldi-ring ldi-ring-1"></div>
+        <div class="ldi-ring ldi-ring-2"></div>
+        <div class="ldi-ring ldi-ring-3"></div>
+        <div class="ldi-ring ldi-ring-4"></div>
+        <div class="ldi-ring ldi-ring-5"></div>
+        <!-- Orbiting dots -->
+        <div class="ldi-orbit ldi-orbit-a"></div>
+        <div class="ldi-orbit ldi-orbit-b"></div>
+        <div class="ldi-orbit ldi-orbit-c"></div>
+        <!-- Glow core -->
+        <div class="ldi-glow-core"></div>
+        <!-- Logo + text -->
+        <div class="ldi-logo-wrap">
+            <img class="ldi-logo-img" src="https://f49838zn07.ufs.sh/f/kOegvl1c9uGz0GkOhnsYbvjSoBAlPwnsmVHZgfrN3k8Ux1F6" alt="LDI Logo">
+            <p class="ldi-title-ar">معهد إعداد القادة</p>
+            <p class="ldi-title-en">Leadership Development Institute</p>
+            <p class="ldi-tagline">وطن بداخل وطن</p>
+            <div class="ldi-progress-wrap">
+                <div class="ldi-bar-track">
+                    <div class="ldi-bar-fill"></div>
+                </div>
+                <div class="ldi-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LDI LOADER SCRIPT ===== -->
+    <script>
+        (function() {
+            document.body.classList.add('ldi-loading');
+            // Build starfield
+            var sf = document.getElementById('ldi-stars');
+            for (var i = 0; i < 80; i++) {
+                var el = document.createElement('div');
+                el.className = 'ldi-star';
+                var sz = Math.random() * 2.5 + 0.5;
+                el.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-duration:' + (Math.random() * 4 + 2) + 's;animation-delay:' + (Math.random() * 5) + 's;';
+                sf.appendChild(el);
+            }
+            // Build dust
+            var loader = document.getElementById('ldi-loader');
+            for (var j = 0; j < 50; j++) {
+                var d = document.createElement('div');
+                d.className = 'ldi-dust';
+                var ds = Math.random() * 7 + 2;
+                var dx = (Math.random() - 0.5) * 200;
+                d.style.cssText = 'width:' + ds + 'px;height:' + ds + 'px;left:' + (Math.random() * 100) + '%;background:radial-gradient(circle,rgba(212,160,23,' + (Math.random() * 0.7 + 0.3) + '),rgba(212,160,23,0));--dx:' + dx + 'px;animation-duration:' + (Math.random() * 9 + 5) + 's;animation-delay:' + (Math.random() * 7) + 's;';
+                loader.appendChild(d);
+            }
+            // Dismiss logic
+            var MIN = 1250,
+                ready = false,
+                timed = false;
+
+            function tryHide() {
+                if (ready && timed) {
+                    loader.classList.add('ldi-hide');
+                    document.body.classList.remove('ldi-loading');
+                    loader.addEventListener('transitionend', function() {
+                        loader.remove();
+                    }, {
+                        once: true
+                    });
+                }
+            }
+            setTimeout(function() {
+                timed = true;
+                tryHide();
+            }, MIN);
+            if (document.readyState === 'complete') {
+                ready = true;
+                tryHide();
+            } else window.addEventListener('load', function() {
+                ready = true;
+                tryHide();
+            });
+        })();
+    </script>
+
+
+    
+    <!-- NAVBAR -->
+    <div class="topnav">
+        <div class="nav">
+            <a href="index.html">
+                <img class="logo" src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI Logo">
+            </a>
+            <a href="index.html" class="nav-link active" id="navhome"></a>
+            <div class="dropdown-container">
+                <a href="#" class="nav-link">
+                    <span id="nav1"></span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="history_index.html" id="nav1_sub1"></a>
+                    </li>
+                    <li>
+                        <a href="board_index.html" id="nav1_sub2"></a>
+                    </li>
+                    <li>
+                        <a href="structure_index.html" id="nav1_sub3"></a>
+                    </li>
+                </ul>
+            </div>
+            <a href="activties_index.html" class="nav-link" id="nav2"></a>
+            <a href="clients_index.html" class="nav-link" id="nav4"></a>
+            <div class="nav-actions">
+                <div class="lang-dropdown">
+                    <span class="nav-link" id="current-lang-label"></span>
+                    <div class="lang-menu">
+                        <div class="lang-option" onclick="setLanguage('ar')">
+                            العربية <img src="https://emojigraph.org/media/twitter/flag-egypt_1f1ea-1f1ec.png" class="flag-img" alt="ar">
+                        </div>
+                        <div class="lang-option" onclick="setLanguage('en')">
+                            English <img src="https://emojigraph.org/media/twitter/flag-united-states_1f1fa-1f1f8.png" class="flag-img" alt="en">
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleTheme()" id="theme-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="icon sun-icon">☀</span>
+                    <span class="icon moon-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+  <nav class="ai-glass-nav">
+    <div class="nav-brand">
+        <a href="index.html">
+            <img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI Logo" class="nav-logo">
+        </a>
+    </div>
+    
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar top"></span>
+        <span class="bar middle"></span>
+        <span class="bar bottom"></span>
+    </button>
+</nav>
+
+<div class="glass-menu-overlay" id="glass-menu">
+    <div class="glass-menu-content">
+        <ul class="glass-nav-links">
+    <li style="--i: 1;"><a href="index.html" id="m-navhome">الرئيسية</a></li>
+    <li class="has-dropdown" style="--i: 2;">
+        <div class="dropdown-header" onclick="toggleSubMenu(this)">
+            <span id="m-nav1">من نحن</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="glass-sub-menu">
+            <li><a href="history_index.html" id="m-nav1_sub1">تاريخنا</a></li>
+            <li><a href="board_index.html" id="m-nav1_sub2">مجلس الإدارة</a></li>
+            <li><a href="structure_index.html" id="m-nav1_sub3">هيكل المعهد</a></li>
+        </ul>
+    </li>
+    <li style="--i: 3;"><a href="activties_index.html" id="m-nav2">الأنشطة</a></li>
+    <li style="--i: 4;"><a href="clients_index.html" id="m-nav4">شركاؤنا</a></li>
+</ul>
+        
+        <div class="glass-menu-actions" style="--i: 5;">
+            <div class="lang-switch-glass">
+                <button onclick="setLanguage('ar'); closeAiMenu();">AR</button>
+                <button onclick="setLanguage('en'); closeAiMenu();">EN</button>
+            </div>
+            <button onclick="toggleTheme()" class="theme-btn-glass" aria-label="Toggle Theme">
+                <span class="icon sun-icon">☀</span>
+                <span class="icon moon-icon">🌙</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- HERO -->
+    <div class="partners-hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 id="partners_intro_title2"></h1>
+                <p id="partners_intro_desc2"></p>
+            </div>
+            <div class="hero-cards">
+                <div class="card"><img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkKJrn1gwO1zIFAZNpSycV46QU8kDh0Ydj5fW2" alt=""></div>
+                <div class="card"><img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkzg3uc6xD5Feb9SuAqULXHvK3RsI7Gdktw24o" alt=""></div>
+                <div class="card"><img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkBPAjOEDrgOauL3s7K1Bvmch4bMTRiFN0VDAU" alt=""></div>
+            </div>
+        </div>
+
+        <!-- EVENTS GRID -->
+        <div class="events-grid-container">
+            <div class="card-event">
+                <div class="info">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- SCROLLING IMAGES -->
+        <div class="scorlling" style="margin:40px 0;">
+            <div class="item item1"><img src="https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/561197064_1368995388604211_3501553261717492022_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=v33CWnCQ8wEQ7kNvwGuLj6u&_nc_oc=AdnKdINQ4VIPcqUqPTpAozzcoLEKEtr0MmX32-GE-sG01ScqU3gfZiJtuH97bIex4cI&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=M2GjYcgnqxqkjUtmzkdv_w&oh=00_AfsP48cVUVZNw8cfCSzGhzTuzD_04W8UxOf4ZjEtW1tWzw&oe=6992800C"
+                    alt=""></div>
+            <div class="item item2"><img src="https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/615322746_1301249088698566_7834972286772440151_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=SyV04ZHR6esQ7kNvwGoIdoO&_nc_oc=AdmpSpsuInP6N0EIkPDeJB_XgGSrUVowQHCNqJ8gwv_8SW9-qhUP1Ow8Rjo0GooKx7Q&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=d8vebxJmr07OlpK52pt3kQ&oh=00_Aftu7kyf2BEHRxCggkZIMVZrQKRfKNaLh_QTTU-YtNMrPw&oe=6992721A"
+                    alt=""></div>
+            <div class="item item3"><img src="https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/615145243_1301416245348517_5086142600940139616_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=jfhRysXMi6UQ7kNvwHLq8Uu&_nc_oc=Adl_DWkXASYKkUyseIpocyxCrholB9-Mtqj5bmQksJjnYSE2T53f3tRrzWn_T1Omajo&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=5q1VmOAIxSXYxVP-m0xyEQ&oh=00_AfvGxwj7mUQGhH-TsmHBQq6yXPdaoZVBy3eTtClmYrCvvQ&oe=69926C7A"
+                    alt=""></div>
+            <div class="item item4"><img src="https://scontent.fcai20-4.fna.fbcdn.net/v/t39.30808-6/615930224_1301099385380203_3582280212090455224_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=UD6ts61s9j0Q7kNvwGZxNOZ&_nc_oc=AdkBwjU8E60wWLUOwl1SOC7DNtH6xbpnEQKfh-53iPN8jojAR-wxClPfLK7H2FXFVRE&_nc_zt=23&_nc_ht=scontent.fcai20-4.fna&_nc_gid=uoxjIwx2lMBWtl1W0PQHwg&oh=00_AfuaZzv8vRn7BP6pAT7Sm3gQ0GC9zDnstf1cEaWX56wVOQ&oe=69928B93"
+                    alt=""></div>
+            <div class="item item5"><img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/605714117_1415104699972360_6936328436139474426_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0r7u2wEzPdAQ7kNvwEfSlzv&_nc_oc=AdkMjwyFfE1rsjSEz7WwLeTsUEUXADdQNh2ScUKVQxoK0Qu2JSJwiYoXyIH0lZG27Vw&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=rCmSlQW8ZukdBEOlhvazEQ&oh=00_Afsu7Cv2QOwvMTbGO5OM6hXRyxcii59GAHVstizA4eOAFg&oe=6992A294"
+                    alt=""></div>
+            <div class="item item6"><img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/610631161_1415104739972356_4127872503583955897_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=cK_eVMP7AaEQ7kNvwEw5tJZ&_nc_oc=Admauct3P7B4a5fsb1wZ56R1xDNlj1uv76TRGV9LcgEyN6VWflgj17uICeBp6UmayxU&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=afzrEy19LvQW4-qaoYGDHw&oh=00_AfuV8J7mWiYGULoHyrDpaBBhPvGlgc28y1ByjUuFE_khaw&oe=69927188"
+                    alt=""></div>
+            <div class="item item7"><img src="https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/605780342_1415105019972328_81223316309445975_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=12lcH_2gQJ0Q7kNvwFVSnsx&_nc_oc=AdnjgYb1WRnGbz24fRLSK3_etEKGICi4BGvIfD330C0FlJd6WHXRka6ug5r_TEYnwHw&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=OZhyJ1OiUDC10Ibxx46gKw&oh=00_Afuy10qVsxjmiUWcay07MHZUiFGQgsNSBjS_jtbYyrK_zg&oe=6992A0A6"
+                    alt=""></div>
+            <div class="item item8"><img src="https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/597854930_1274160044740804_3778628563036950022_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=B-L-1BONPpQQ7kNvwExcXUP&_nc_oc=AdmudAcOJtjRetunvOBKaWcA762tPkaeOYReECYNu7_gkBWEeI3cyz48xVW_gOnwU3o&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=N4RW09vd0utzF_zfpy392A&oh=00_Afu5FsKGfgidVJdoC61VPFlho5OnhMwF-Sq3vsLumJ1HeQ&oe=699299FD"
+                    alt=""></div>
+            <div class="item item9"><img src="https://scontent.fcai20-4.fna.fbcdn.net/v/t39.30808-6/581270160_1250444550445687_397545961683050605_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=QXWy-ykWbMQQ7kNvwFq02Sq&_nc_oc=AdnKYrhP7U63q3Fbck3VyNpDJMF-GcAF_BT0vpFMh_xGJHABBLyiSl4mELOv2vG7pVQ&_nc_zt=23&_nc_ht=scontent.fcai20-4.fna&_nc_gid=J-Tf9lwPoHMnr9QjYfYPRA&oh=00_AfsV7NY3kIjiID_D--oLRVZeYrp-vC4YvMzKDlvdxsNv8Q&oe=69927BC0"
+                    alt=""></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="ldi-footer">
+            <div class="ldi-logo"><img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI">
+                <p id="logo-title"></p>
+                <p id="logo-slogan"></p>
+            </div>
+            <div class="contact-section">
+                <p id="contact-us"></p>
+                <a href="https://maps.app.goo.gl/caYVd3UeBCh157HL8" id="contact-location" target="_blank" rel="noopener noreferrer"></a>
+                <p id="contact-phone"></p>
+                <a href="mailto:info@ldi.eg" id="contact-email" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+            <div class="important-links">
+                <p id="important-links-title"></p>
+                <ul id="important-links-list"></ul>
+            </div>
+        </div>
+        <p id="copyright" class="footer-copyright"></p>
+    </footer>
+
+    <script src="website edits.js"></script>
+
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LDI Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --gold: #d4a017;
+    --gold-light: #f5d060;
+    --gold-dim: rgba(212,160,23,0.15);
+    --navy: #081636;
+    --navy-mid: #0d2044;
+    --navy-light: #1a3d6d;
+    --text: #e8e8e8;
+    --text-dim: rgba(232,232,232,0.5);
+    --danger: #e05252;
+    --success: #4caf7d;
+    --border: rgba(212,160,23,0.2);
+    --card: rgba(13,32,68,0.8);
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #060e1e;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── LOGIN SCREEN ─────────────────────────────── */
+  #login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 30% 40%, #081636 0%, #050c1a 60%, #0a0e39 100%);
+    position: relative;
+  }
+  #login-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .login-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,160,23,0.05);
+  }
+  .login-logo {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .login-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 30px rgba(212,160,23,0.4);
+    object-fit: cover;
+  }
+  .login-logo h1 {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-top: 12px;
+  }
+  .login-logo p {
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── FORM ELEMENTS ─────────────────────────────── */
+  .form-group {
+    margin-bottom: 18px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'Space Mono', monospace;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,160,23,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-group select option { background: var(--navy-mid); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #0a1628;
+  }
+  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,160,23,0.4); }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-danger {
+    background: rgba(224,82,82,0.15);
+    border: 1px solid rgba(224,82,82,0.3);
+    color: var(--danger);
+  }
+  .btn-danger:hover { background: rgba(224,82,82,0.25); }
+  .btn-success {
+    background: rgba(76,175,125,0.15);
+    border: 1px solid rgba(76,175,125,0.3);
+    color: var(--success);
+  }
+  .btn-sm { padding: 8px 14px; font-size: 12px; }
+  .btn-full { width: 100%; justify-content: center; }
+
+  /* ── MAIN LAYOUT ─────────────────────────────────── */
+  #app { display: none; min-height: 100vh; }
+
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 240px;
+    background: var(--navy);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    transition: transform 0.3s;
+  }
+  .sidebar-logo {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sidebar-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    object-fit: cover;
+  }
+  .sidebar-logo span {
+    font-size: 13px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+  }
+  .sidebar-nav {
+    flex: 1;
+    padding: 16px 12px;
+    overflow-y: auto;
+  }
+  .nav-section {
+    margin-bottom: 8px;
+  }
+  .nav-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 12px 4px;
+    font-family: 'Space Mono', monospace;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s;
+    margin-bottom: 2px;
+    user-select: none;
+  }
+  .nav-item:hover { background: var(--gold-dim); color: var(--text); }
+  .nav-item.active {
+    background: linear-gradient(135deg, rgba(212,160,23,0.2), rgba(212,160,23,0.1));
+    color: var(--gold);
+    border: 1px solid rgba(212,160,23,0.2);
+  }
+  .nav-item i { width: 18px; text-align: center; font-size: 15px; }
+  .sidebar-footer {
+    padding: 16px 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .main-content {
+    margin-left: 240px;
+    min-height: 100vh;
+    background: #060e1e;
+  }
+  .topbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .topbar-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text);
+  }
+  .topbar-actions { display: flex; align-items: center; gap: 12px; }
+  .admin-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .admin-badge i { font-size: 14px; }
+
+  .page-content { padding: 32px; }
+
+  /* ── STATS CARDS ──────────────────────────────────── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+  }
+  .stat-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    margin: 8px 0 4px;
+    font-family: 'Space Mono', monospace;
+  }
+  .stat-icon {
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    color: rgba(212,160,23,0.1);
+  }
+
+  /* ── DATA TABLE ────────────────────────────────────── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title i { color: var(--gold); }
+
+  .data-table-wrapper {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .data-table th {
+    background: rgba(212,160,23,0.08);
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .table-img {
+    width: 48px; height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .table-logo {
+    width: 48px; height: 36px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: white;
+    padding: 3px;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+  .empty-state i { font-size: 40px; margin-bottom: 12px; color: var(--border); }
+  .empty-state p { font-size: 16px; }
+
+  /* ── BADGE ──────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-active { background: rgba(76,175,125,0.15); color: var(--success); border: 1px solid rgba(76,175,125,0.3); }
+  .badge-gov { background: rgba(74,143,212,0.15); color: #4a8fd4; border: 1px solid rgba(74,143,212,0.3); }
+  .badge-private { background: rgba(212,160,23,0.15); color: var(--gold); border: 1px solid var(--border); }
+  .badge-national { background: rgba(156,39,176,0.15); color: #ce93d8; border: 1px solid rgba(156,39,176,0.3); }
+
+  /* ── MODAL ──────────────────────────────────────────── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    transform: scale(0.96);
+    transition: transform 0.2s;
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal-header {
+    padding: 24px 28px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal-title i { color: var(--gold); }
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 20px;
+    cursor: pointer;
+    width: 32px; height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+  .modal-body { padding: 24px 28px; }
+  .modal-footer {
+    padding: 16px 28px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── IMAGE UPLOAD ────────────────────────────────────── */
+  .img-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .img-upload-area:hover { border-color: var(--gold); background: var(--gold-dim); }
+  .img-upload-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .img-upload-area i { font-size: 24px; color: var(--text-dim); margin-bottom: 8px; }
+  .img-upload-area p { font-size: 13px; color: var(--text-dim); }
+  .img-preview {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    display: none;
+  }
+
+  /* ── TOAST ───────────────────────────────────────────── */
+  #toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .toast {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    animation: slideIn 0.3s ease;
+    min-width: 280px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .toast.success { border-left: 3px solid var(--success); }
+  .toast.error { border-left: 3px solid var(--danger); }
+  .toast.success i { color: var(--success); }
+  .toast.error i { color: var(--danger); }
+  @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+  /* ── CONFIRM DIALOG ─────────────────────────────────── */
+  #confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9998;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  #confirm-overlay.open { display: flex; }
+  #confirm-box {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  #confirm-box i { font-size: 40px; color: var(--danger); margin-bottom: 16px; }
+  #confirm-box h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; }
+  #confirm-box p { font-size: 14px; color: var(--text-dim); margin-bottom: 24px; }
+  #confirm-box .btn-row { display: flex; gap: 10px; justify-content: center; }
+
+  /* ── LOADING ────────────────────────────────────────── */
+  .loading-spinner {
+    width: 20px; height: 20px;
+    border: 2px solid rgba(212,160,23,0.3);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── PAGE TRANSITIONS ───────────────────────────────── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── SCROLLBAR ─────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ── MISC ─────────────────────────────────────────── */
+  .text-gold { color: var(--gold); }
+  .text-dim { color: var(--text-dim); }
+  .flex { display: flex; align-items: center; gap: 8px; }
+  .flex-col { display: flex; flex-direction: column; gap: 8px; }
+  .action-btns { display: flex; gap: 6px; }
+  .search-bar {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    outline: none;
+    width: 260px;
+    transition: border-color 0.2s;
+  }
+  .search-bar:focus { border-color: var(--gold); }
+  .filter-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.open { transform: translateX(0); }
+    .main-content { margin-left: 0; }
+    .form-row { grid-template-columns: 1fr; }
+    .topbar { padding: 0 16px; }
+    .page-content { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ─────────────────────────────────────── -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI">
+      <h1>LDI Admin Panel</h1>
+      <p>Restricted Access Only</p>
+    </div>
+    <form id="login-form">
+      <div class="form-group">
+        <label><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="login-username" placeholder="Enter admin username" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="login-password" placeholder="Enter password" required autocomplete="current-password">
+      </div>
+      <div id="login-error" style="color:var(--danger);font-size:13px;margin-bottom:12px;display:none;text-align:center;"></div>
+      <button type="submit" class="btn btn-gold btn-full" id="login-btn">
+        <i class="fa fa-sign-in-alt"></i> Sign In
+      </button>
+    </form>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-top:20px;font-family:'Space Mono',monospace;">
+      🔒 Secure Admin Access · LDI 2024
+    </p>
+  </div>
+</div>
+
+<!-- ── MAIN APP ──────────────────────────────────────────── -->
+<div id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://rbjkis7zqx.ufs.sh/f/4UPD8CWlzrFkn1rutn0yCHQefDZsWd7xL3UrpS5whMTnkouz" alt="LDI">
+      <span>LDI<br>Admin Panel</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Overview</div>
+        <div class="nav-item active" onclick="showPage('dashboard')">
+          <i class="fa fa-chart-pie"></i> Dashboard
+        </div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Content</div>
+        <div class="nav-item" onclick="showPage('activities')">
+          <i class="fa fa-calendar-alt"></i> Activities
+        </div>
+        <div class="nav-item" onclick="showPage('clients')">
+          <i class="fa fa-building"></i> Clients
+        </div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Settings</div>
+        <div class="nav-item" onclick="showPage('settings')">
+          <i class="fa fa-cog"></i> Settings
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="nav-item" onclick="logout()" style="color:var(--danger)">
+        <i class="fa fa-sign-out-alt"></i> Logout
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="topbar">
+      <div class="flex">
+        <button onclick="toggleSidebar()" class="btn btn-outline btn-sm" style="display:none" id="hamburger">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="topbar-title" id="topbar-title">Dashboard</div>
+      </div>
+      <div class="topbar-actions">
+        <div class="admin-badge">
+          <i class="fa fa-shield-alt"></i>
+          <span id="admin-name">admin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <!-- ── DASHBOARD ───────────────────────── -->
+      <div class="page active" id="page-dashboard">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Activities</div>
+            <div class="stat-value" id="stat-activities">—</div>
+            <i class="fa fa-calendar-alt stat-icon"></i>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Clients</div>
+            <div class="stat-value" id="stat-clients">—</div>
+            <i class="fa fa-building stat-icon"></i>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Gov. Universities</div>
+            <div class="stat-value" id="stat-gov">—</div>
+            <i class="fa fa-university stat-icon"></i>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Private Universities</div>
+            <div class="stat-value" id="stat-private">—</div>
+            <i class="fa fa-graduation-cap stat-icon"></i>
+          </div>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+          <h2 style="font-size:16px;font-weight:900;margin-bottom:12px;color:var(--gold);">
+            <i class="fa fa-info-circle"></i> Quick Start Guide
+          </h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px;">
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:16px;border:1px solid var(--border);">
+              <div style="color:var(--gold);font-weight:700;margin-bottom:8px;"><i class="fa fa-plus-circle"></i> Add Activity</div>
+              <p style="font-size:13px;color:var(--text-dim);">Go to Activities → Click "Add Activity" to post new events with image, date, and links.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:16px;border:1px solid var(--border);">
+              <div style="color:var(--gold);font-weight:700;margin-bottom:8px;"><i class="fa fa-building"></i> Manage Clients</div>
+              <p style="font-size:13px;color:var(--text-dim);">Go to Clients → Add or remove university/partner logos with categories.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:16px;border:1px solid var(--border);">
+              <div style="color:var(--gold);font-weight:700;margin-bottom:8px;"><i class="fa fa-code"></i> Website Integration</div>
+              <p style="font-size:13px;color:var(--text-dim);">The website fetches data from <code style="color:var(--gold-light)">/api/activities/public</code> and <code style="color:var(--gold-light)">/api/clients/public</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ACTIVITIES ────────────────────────── -->
+      <div class="page" id="page-activities">
+        <div class="section-header">
+          <div class="section-title"><i class="fa fa-calendar-alt"></i> Activities</div>
+          <button class="btn btn-gold" onclick="openActivityModal()">
+            <i class="fa fa-plus"></i> Add Activity
+          </button>
+        </div>
+        <div class="filter-bar">
+          <input type="text" class="search-bar" placeholder="🔍 Search activities..." oninput="filterActivities(this.value)" id="activity-search">
+        </div>
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title (Arabic)</th>
+                <th>Date</th>
+                <th>Title (English)</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="activities-table-body">
+              <tr><td colspan="5"><div class="empty-state"><div class="loading-spinner"></div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── CLIENTS ───────────────────────────── -->
+      <div class="page" id="page-clients">
+        <div class="section-header">
+          <div class="section-title"><i class="fa fa-building"></i> Clients & Partners</div>
+          <button class="btn btn-gold" onclick="openClientModal()">
+            <i class="fa fa-plus"></i> Add Client
+          </button>
+        </div>
+        <div class="filter-bar">
+          <input type="text" class="search-bar" placeholder="🔍 Search clients..." oninput="filterClients(this.value)" id="client-search">
+          <select id="client-category-filter" class="search-bar" style="width:auto" onchange="filterClients()">
+            <option value="">All Categories</option>
+            <option value="active">Active Partners</option>
+            <option value="gov">Government Universities</option>
+            <option value="private">Private Universities</option>
+            <option value="national">National Universities</option>
+          </select>
+        </div>
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Order</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="clients-table-body">
+              <tr><td colspan="5"><div class="empty-state"><div class="loading-spinner"></div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── SETTINGS ──────────────────────────── -->
+      <div class="page" id="page-settings">
+        <div style="max-width:500px;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px;">
+            <h2 style="font-size:16px;font-weight:900;margin-bottom:20px;color:var(--gold);">
+              <i class="fa fa-lock"></i> Change Password
+            </h2>
+            <form id="change-pw-form">
+              <div class="form-group">
+                <label>Current Password</label>
+                <input type="password" id="current-pw" placeholder="Current password" required>
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" id="new-pw" placeholder="New password (min 6 chars)" required minlength="6">
+              </div>
+              <div class="form-group">
+                <label>Confirm New Password</label>
+                <input type="password" id="confirm-pw" placeholder="Confirm new password" required>
+              </div>
+              <button type="submit" class="btn btn-gold">
+                <i class="fa fa-save"></i> Save Password
+              </button>
+            </form>
+          </div>
+
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+            <h2 style="font-size:16px;font-weight:900;margin-bottom:16px;color:var(--gold);">
+              <i class="fa fa-code"></i> API Integration
+            </h2>
+            <p style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">Use these endpoints in your website HTML:</p>
+            <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--gold-light);">
+              GET /api/activities/public<br>
+              GET /api/clients/public
+            </div>
+            <p style="font-size:12px;color:var(--text-dim);margin-top:10px;">These endpoints are public (no auth needed) and return JSON data for your website pages.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-content -->
+  </div><!-- /main-content -->
+</div><!-- /app -->
+
+<!-- ── ACTIVITY MODAL ─────────────────────────────────────── -->
+<div class="modal-overlay" id="activity-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title"><i class="fa fa-calendar-alt"></i> <span id="activity-modal-title">Add Activity</span></div>
+      <button class="modal-close" onclick="closeModal('activity-modal')"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="activity-form">
+        <input type="hidden" id="activity-id">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Title (Arabic) *</label>
+            <input type="text" id="activity-title-ar" placeholder="عنوان النشاط" required dir="rtl">
+          </div>
+          <div class="form-group">
+            <label>Title (English)</label>
+            <input type="text" id="activity-title-en" placeholder="Activity Title">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date *</label>
+            <input type="date" id="activity-date" required>
+          </div>
+          <div class="form-group">
+            <label>Display Order</label>
+            <input type="number" id="activity-order" value="0" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description (Arabic)</label>
+          <textarea id="activity-desc-ar" placeholder="وصف النشاط" dir="rtl"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Description (English)</label>
+          <textarea id="activity-desc-en" placeholder="Activity description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Facebook / External Link</label>
+          <input type="url" id="activity-link" placeholder="https://facebook.com/...">
+        </div>
+        <div class="form-group">
+          <label>Activity Image — Upload File</label>
+          <div class="img-upload-area" id="activity-img-area">
+            <input type="file" id="activity-image" accept="image/*" onchange="previewImage(this,'activity-img-preview','activity-img-area');document.getElementById('activity-image-url').value='';">
+            <i class="fa fa-image"></i>
+            <p>Click to upload image (JPG, PNG, WebP)</p>
+          </div>
+          <img id="activity-img-preview" class="img-preview" alt="Preview">
+        </div>
+        <div class="form-group">
+          <label>— OR — Image URL (external link)</label>
+          <input type="url" id="activity-image-url" placeholder="https://example.com/image.jpg" oninput="previewImageUrl(this,'activity-img-preview')">
+        </div>
+        <div class="form-group" id="activity-current-img-group" style="display:none">
+          <label>Current Image</label>
+          <img id="activity-current-img" style="max-height:80px;border-radius:8px;border:1px solid var(--border);" alt="Current">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('activity-modal')">Cancel</button>
+      <button class="btn btn-gold" onclick="saveActivity()" id="save-activity-btn">
+        <i class="fa fa-save"></i> Save Activity
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CLIENT MODAL ───────────────────────────────────────── -->
+<div class="modal-overlay" id="client-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title"><i class="fa fa-building"></i> <span id="client-modal-title">Add Client</span></div>
+      <button class="modal-close" onclick="closeModal('client-modal')"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="client-form">
+        <input type="hidden" id="client-id">
+        <div class="form-group">
+          <label>Client / University Name *</label>
+          <input type="text" id="client-name" placeholder="Name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="client-category">
+              <option value="active">Active Partners</option>
+              <option value="gov">Government Universities</option>
+              <option value="private">Private Universities</option>
+              <option value="national">National Universities</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Display Order</label>
+            <input type="number" id="client-order" value="0" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Logo — Upload File</label>
+          <div class="img-upload-area" id="client-img-area">
+            <input type="file" id="client-logo" accept="image/*,.svg" onchange="previewImage(this,'client-img-preview','client-img-area')">
+            <i class="fa fa-image"></i>
+            <p>Upload logo (JPG, PNG, SVG, WebP)</p>
+          </div>
+          <img id="client-img-preview" class="img-preview" alt="Preview">
+        </div>
+        <div class="form-group">
+          <label>— OR — Logo URL (external link)</label>
+          <input type="url" id="client-logo-url" placeholder="https://example.com/logo.png">
+        </div>
+        <div class="form-group" id="client-current-img-group" style="display:none">
+          <label>Current Logo</label>
+          <img id="client-current-img" style="max-height:60px;border-radius:4px;background:white;padding:4px;border:1px solid var(--border);" alt="Current">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('client-modal')">Cancel</button>
+      <button class="btn btn-gold" onclick="saveClient()" id="save-client-btn">
+        <i class="fa fa-save"></i> Save Client
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRM DIALOG ─────────────────────────────────────── -->
+<div id="confirm-overlay">
+  <div id="confirm-box">
+    <i class="fa fa-exclamation-triangle"></i>
+    <h3>Are you sure?</h3>
+    <p id="confirm-message">This action cannot be undone.</p>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirm-ok-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST CONTAINER ───────────────────────────────────── -->
+<div id="toast-container"></div>
+
+<script>
+const API = 'http://localhost:8000';
+let token = localStorage.getItem('ldi_admin_token');
+let allActivities = [];
+let allClients = [];
+
+// ── AUTH ──────────────────────────────────────────────────────
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('login-btn');
+  btn.innerHTML = '<span class="loading-spinner"></span> Signing in...';
+  btn.disabled = true;
+  const err = document.getElementById('login-error');
+  err.style.display = 'none';
+
+  const fd = new FormData();
+  fd.append('username', document.getElementById('login-username').value);
+  fd.append('password', document.getElementById('login-password').value);
+
+  try {
+    const res = await fetch(`${API}/api/auth/login`, { method: 'POST', body: fd });
+    if (!res.ok) throw new Error('Invalid credentials');
+    const data = await res.json();
+    token = data.token;
+    localStorage.setItem('ldi_admin_token', token);
+    document.getElementById('admin-name').textContent = data.username;
+    showApp();
+  } catch(ex) {
+    err.textContent = '❌ ' + ex.message;
+    err.style.display = 'block';
+  }
+  btn.innerHTML = '<i class="fa fa-sign-in-alt"></i> Sign In';
+  btn.disabled = false;
+});
+
+async function checkAuth() {
+  if (!token) return;
+  try {
+    const res = await fetch(`${API}/api/auth/me`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    if (res.ok) {
+      const data = await res.json();
+      document.getElementById('admin-name').textContent = data.username;
+      showApp();
+    } else {
+      localStorage.removeItem('ldi_admin_token');
+      token = null;
+    }
+  } catch { localStorage.removeItem('ldi_admin_token'); token = null; }
+}
+
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  document.getElementById('app').style.flexDirection = 'column';
+  document.getElementById('app').style.minHeight = '100vh';
+  loadStats();
+  loadActivities();
+  loadClients();
+}
+
+function logout() {
+  localStorage.removeItem('ldi_admin_token');
+  token = null;
+  location.reload();
+}
+
+// ── NAV ───────────────────────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(`page-${name}`).classList.add('active');
+  const titles = { dashboard: 'Dashboard', activities: 'Activities', clients: 'Clients & Partners', settings: 'Settings' };
+  document.getElementById('topbar-title').textContent = titles[name];
+  event && event.currentTarget && event.currentTarget.classList.add('active');
+  // Fix: find clicked nav item
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes(name)) {
+      n.classList.add('active');
+    }
+  });
+  if (window.innerWidth < 768) {
+    document.getElementById('sidebar').classList.remove('open');
+  }
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ── STATS ─────────────────────────────────────────────────────
+async function loadStats() {
+  try {
+    const res = await fetch(`${API}/api/stats`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const data = await res.json();
+    document.getElementById('stat-activities').textContent = data.activities;
+    document.getElementById('stat-clients').textContent = data.clients;
+    document.getElementById('stat-gov').textContent = data.client_categories?.gov || 0;
+    document.getElementById('stat-private').textContent = data.client_categories?.private || 0;
+  } catch {}
+}
+
+// ── ACTIVITIES ────────────────────────────────────────────────
+async function loadActivities() {
+  try {
+    const res = await fetch(`${API}/api/activities`, { headers: { 'Authorization': `Bearer ${token}` } });
+    allActivities = await res.json();
+    renderActivities(allActivities);
+  } catch(e) {
+    document.getElementById('activities-table-body').innerHTML = `<tr><td colspan="5"><div class="empty-state"><i class="fa fa-exclamation-circle"></i><p>Failed to load activities</p></div></td></tr>`;
+  }
+}
+
+function renderActivities(list) {
+  const tbody = document.getElementById('activities-table-body');
+  if (!list.length) {
+    tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><i class="fa fa-calendar-times"></i><p>No activities yet. Click "Add Activity" to create one.</p></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = list.map(a => `
+    <tr>
+      <td>${a.image_url ? `<img class="table-img" src="${a.image_url}" onerror="this.style.display='none'">` : '<span class="text-dim">—</span>'}</td>
+      <td dir="rtl" style="font-weight:700">${esc(a.title_ar)}</td>
+      <td style="font-family:'Space Mono',monospace;font-size:12px;color:var(--gold)">${a.date}</td>
+      <td style="color:var(--text-dim)">${esc(a.title_en || '—')}</td>
+      <td>
+        <div class="action-btns">
+          <button class="btn btn-outline btn-sm" onclick="editActivity(${a.id})"><i class="fa fa-pen"></i></button>
+          <button class="btn btn-danger btn-sm" onclick="deleteActivity(${a.id}, '${esc(a.title_ar)}')"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function filterActivities(q) {
+  if (!q) return renderActivities(allActivities);
+  q = q.toLowerCase();
+  renderActivities(allActivities.filter(a =>
+    (a.title_ar||'').toLowerCase().includes(q) ||
+    (a.title_en||'').toLowerCase().includes(q)
+  ));
+}
+
+function openActivityModal(data = null) {
+  document.getElementById('activity-id').value = '';
+  document.getElementById('activity-form').reset();
+  document.getElementById('activity-img-preview').style.display = 'none';
+  document.getElementById('activity-current-img-group').style.display = 'none';
+  document.getElementById('activity-modal-title').textContent = 'Add Activity';
+
+  if (data) {
+    document.getElementById('activity-modal-title').textContent = 'Edit Activity';
+    document.getElementById('activity-id').value = data.id;
+    document.getElementById('activity-title-ar').value = data.title_ar || '';
+    document.getElementById('activity-title-en').value = data.title_en || '';
+    document.getElementById('activity-date').value = data.date || '';
+    document.getElementById('activity-desc-ar').value = data.description_ar || '';
+    document.getElementById('activity-desc-en').value = data.description_en || '';
+    document.getElementById('activity-link').value = data.link || '';
+    document.getElementById('activity-order').value = data.display_order || 0;
+    if (data.image_url) {
+      document.getElementById('activity-current-img-group').style.display = 'block';
+      document.getElementById('activity-current-img').src = data.image_url;
+      // Pre-fill the URL field if the image is an external link
+      if (data.image_url.startsWith('http')) {
+        document.getElementById('activity-image-url').value = data.image_url;
+      }
+    }
+  }
+  openModal('activity-modal');
+}
+
+function editActivity(id) {
+  const a = allActivities.find(x => x.id === id);
+  if (a) openActivityModal(a);
+}
+
+async function saveActivity() {
+  const btn = document.getElementById('save-activity-btn');
+  btn.innerHTML = '<span class="loading-spinner"></span>';
+  btn.disabled = true;
+
+  const id = document.getElementById('activity-id').value;
+  const fd = new FormData();
+  fd.append('title_ar', document.getElementById('activity-title-ar').value);
+  fd.append('title_en', document.getElementById('activity-title-en').value);
+  fd.append('date', document.getElementById('activity-date').value);
+  fd.append('description_ar', document.getElementById('activity-desc-ar').value);
+  fd.append('description_en', document.getElementById('activity-desc-en').value);
+  fd.append('link', document.getElementById('activity-link').value);
+  fd.append('display_order', document.getElementById('activity-order').value);
+  const img = document.getElementById('activity-image').files[0];
+  if (img) fd.append('image', img);
+  const imgUrl = document.getElementById('activity-image-url').value.trim();
+  if (imgUrl) fd.append('image_url_input', imgUrl);
+
+  try {
+    const url = id ? `${API}/api/activities/${id}` : `${API}/api/activities`;
+    const method = id ? 'PUT' : 'POST';
+    const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body: fd });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Error'); }
+    toast('Activity saved successfully!', 'success');
+    closeModal('activity-modal');
+    loadActivities();
+    loadStats();
+  } catch(e) { toast('Error: ' + e.message, 'error'); }
+  btn.innerHTML = '<i class="fa fa-save"></i> Save Activity';
+  btn.disabled = false;
+}
+
+async function deleteActivity(id, name) {
+  if (!window.confirm(`Delete activity "${name}"? This cannot be undone.`)) return;
+  try {
+    const res = await fetch(`${API}/api/activities/${id}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    if (!res.ok) throw new Error('Delete failed');
+    toast('Activity deleted', 'success');
+    await loadActivities();
+    loadStats();
+  } catch(e) { toast('Delete failed: ' + e.message, 'error'); }
+}
+
+// ── CLIENTS ───────────────────────────────────────────────────
+async function loadClients() {
+  try {
+    const res = await fetch(`${API}/api/clients`, { headers: { 'Authorization': `Bearer ${token}` } });
+    allClients = await res.json();
+    renderClients(allClients);
+  } catch {
+    document.getElementById('clients-table-body').innerHTML = `<tr><td colspan="5"><div class="empty-state"><i class="fa fa-exclamation-circle"></i><p>Failed to load clients</p></div></td></tr>`;
+  }
+}
+
+const categoryBadge = {
+  active: '<span class="badge badge-active">Active Partner</span>',
+  gov: '<span class="badge badge-gov">Gov. University</span>',
+  private: '<span class="badge badge-private">Private Univ.</span>',
+  national: '<span class="badge badge-national">National Univ.</span>'
+};
+
+function renderClients(list) {
+  const tbody = document.getElementById('clients-table-body');
+  if (!list.length) {
+    tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><i class="fa fa-building"></i><p>No clients yet. Click "Add Client" to add one.</p></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = list.map(c => `
+    <tr>
+      <td>${c.logo_url ? `<img class="table-logo" src="${c.logo_url}" onerror="this.style.display='none'">` : '<span class="text-dim">—</span>'}</td>
+      <td style="font-weight:700">${esc(c.name)}</td>
+      <td>${categoryBadge[c.category] || c.category}</td>
+      <td style="font-family:'Space Mono',monospace;font-size:12px;color:var(--text-dim)">${c.display_order}</td>
+      <td>
+        <div class="action-btns">
+          <button class="btn btn-outline btn-sm" onclick="editClient(${c.id})"><i class="fa fa-pen"></i></button>
+          <button class="btn btn-danger btn-sm" onclick="deleteClient(${c.id}, '${esc(c.name)}')"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function filterClients(q) {
+  const search = (q || document.getElementById('client-search').value || '').toLowerCase();
+  const cat = document.getElementById('client-category-filter').value;
+  let list = allClients;
+  if (search) list = list.filter(c => (c.name||'').toLowerCase().includes(search));
+  if (cat) list = list.filter(c => c.category === cat);
+  renderClients(list);
+}
+
+function openClientModal(data = null) {
+  document.getElementById('client-id').value = '';
+  document.getElementById('client-form').reset();
+  document.getElementById('client-img-preview').style.display = 'none';
+  document.getElementById('client-current-img-group').style.display = 'none';
+  document.getElementById('client-modal-title').textContent = 'Add Client';
+
+  if (data) {
+    document.getElementById('client-modal-title').textContent = 'Edit Client';
+    document.getElementById('client-id').value = data.id;
+    document.getElementById('client-name').value = data.name || '';
+    document.getElementById('client-category').value = data.category || 'active';
+    document.getElementById('client-order').value = data.display_order || 0;
+    if (data.logo_url && !data.logo_url.startsWith('/uploads/')) {
+      document.getElementById('client-logo-url').value = data.logo_url;
+    }
+    if (data.logo_url) {
+      document.getElementById('client-current-img-group').style.display = 'block';
+      document.getElementById('client-current-img').src = data.logo_url;
+    }
+  }
+  openModal('client-modal');
+}
+
+function editClient(id) {
+  const c = allClients.find(x => x.id === id);
+  if (c) openClientModal(c);
+}
+
+async function saveClient() {
+  const btn = document.getElementById('save-client-btn');
+  btn.innerHTML = '<span class="loading-spinner"></span>';
+  btn.disabled = true;
+
+  const id = document.getElementById('client-id').value;
+  const fd = new FormData();
+  fd.append('name', document.getElementById('client-name').value);
+  fd.append('category', document.getElementById('client-category').value);
+  fd.append('display_order', document.getElementById('client-order').value);
+  fd.append('logo_url_external', document.getElementById('client-logo-url').value);
+  const logo = document.getElementById('client-logo').files[0];
+  if (logo) fd.append('logo', logo);
+
+  try {
+    const url = id ? `${API}/api/clients/${id}` : `${API}/api/clients`;
+    const method = id ? 'PUT' : 'POST';
+    const res = await fetch(url, { method, headers: { 'Authorization': `Bearer ${token}` }, body: fd });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Error'); }
+    toast('Client saved successfully!', 'success');
+    closeModal('client-modal');
+    loadClients();
+    loadStats();
+  } catch(e) { toast('Error: ' + e.message, 'error'); }
+  btn.innerHTML = '<i class="fa fa-save"></i> Save Client';
+  btn.disabled = false;
+}
+
+async function deleteClient(id, name) {
+  if (!window.confirm(`Delete client "${name}"? This cannot be undone.`)) return;
+  try {
+    const res = await fetch(`${API}/api/clients/${id}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    if (!res.ok) throw new Error('Delete failed');
+    toast('Client deleted', 'success');
+    await loadClients();
+    loadStats();
+  } catch(e) { toast('Delete failed: ' + e.message, 'error'); }
+}
+
+// ── SETTINGS ──────────────────────────────────────────────────
+document.getElementById('change-pw-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const np = document.getElementById('new-pw').value;
+  const cp = document.getElementById('confirm-pw').value;
+  if (np !== cp) { toast('New passwords do not match!', 'error'); return; }
+  const fd = new FormData();
+  fd.append('current_password', document.getElementById('current-pw').value);
+  fd.append('new_password', np);
+  try {
+    const res = await fetch(`${API}/api/auth/change-password`, {
+      method: 'POST', headers: { 'Authorization': `Bearer ${token}` }, body: fd
+    });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail); }
+    toast('Password changed successfully!', 'success');
+    document.getElementById('change-pw-form').reset();
+  } catch(e) { toast('Error: ' + e.message, 'error'); }
+});
+
+// ── MODAL HELPERS ─────────────────────────────────────────────
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+});
+
+function previewImage(input, previewId, areaId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById(previewId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+  const area = document.getElementById(areaId);
+  area.querySelector('p').textContent = '✅ ' + file.name;
+}
+
+function previewImageUrl(input, previewId) {
+  const url = input.value.trim();
+  const img = document.getElementById(previewId);
+  if (url) {
+    img.src = url;
+    img.style.display = 'block';
+    img.onerror = () => { img.style.display = 'none'; };
+    // Clear file input so only URL is used
+    const fileInput = document.getElementById('activity-image');
+    if (fileInput) { fileInput.value = ''; }
+    const area = document.getElementById('activity-img-area');
+    if (area) area.querySelector('p').textContent = 'Click to upload image (JPG, PNG, WebP)';
+  } else {
+    img.style.display = 'none';
+  }
+}
+
+// ── TOAST ─────────────────────────────────────────────────────
+function toast(msg, type = 'success') {
+  const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `<i class="fa ${icon}"></i> ${msg}`;
+  document.getElementById('toast-container').appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+
+// ── CONFIRM DIALOG ────────────────────────────────────────────
+let confirmCallback = null;
+function confirm_dialog(msg, cb) {
+  document.getElementById('confirm-message').textContent = msg;
+  document.getElementById('confirm-overlay').classList.add('open');
+  confirmCallback = cb;
+}
+function closeConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('open');
+  confirmCallback = null;
+}
+document.getElementById('confirm-ok-btn').onclick = () => {
+  closeConfirm();
+  confirmCallback && confirmCallback();
+};
+
+// ── UTILS ─────────────────────────────────────────────────────
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+checkAuth();
+
+// Responsive
+if (window.innerWidth < 768) {
+  document.getElementById('hamburger').style.display = 'flex';
+}
+</script>
+</body>
+</html>
