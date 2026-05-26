@@ -31,6 +31,7 @@
     --nav-glass: rgba(255, 255, 255, 0.12);
     --glass-border: rgba(255, 255, 255, 0.2);
     --hover-bg: rgba(255, 255, 255, 0.1);
+    
 }
 
 body.dark-mode {
@@ -3085,7 +3086,7 @@ body.dark-mode .glass-menu-overlay {
 .glass-nav-links a, .dropdown-header span {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #0B2D72;
     text-decoration: none;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -3096,6 +3097,7 @@ body.dark-mode .glass-menu-overlay {
     color: var(--accent-gold);
     text-shadow: 0 0 15px rgba(212, 160, 23, 0.4);
 }
+
 
 /* Sub Menu */
 .dropdown-header {
@@ -3121,7 +3123,7 @@ body.dark-mode .glass-menu-overlay {
 .glass-sub-menu a {
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #E9B63B;
 }
 
 /* Actions (Theme & Lang) */
