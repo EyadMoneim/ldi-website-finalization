@@ -226,7 +226,7 @@ const texts = {
       "تقديم برامج تدريبية وتثقيفية مكثفة لتعزيز الوعي الوطني وتنمية مهارات القيادة الإستراتيجية لدى المجتمع الأكاديمي.",
     zero_name: "المهندسة/ يارا أشرف",
     zero_about:
-      "مشرفة الفريق التقني . معيدة بكلية حاسبات ومعلومات جامعة العاصمة حاصلة ماجستير علوم بيانات بكلية حاسبات ومعلومات جامعة العاصمة (حلوان سابقا)",
+      "مشرفة الفريق التقني . معيدة بكلية الحاسبات والذكاء الإصطناعى جامعة العاصمة حاصلة ماجستير علوم بيانات بكلية حاسبات ومعلومات جامعة العاصمة (حلوان سابقا)",
     first_name: "اياد محمد عبد منعم ",
     first_about:
       "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
@@ -480,7 +480,7 @@ const texts = {
       "Providing intensive training and educational programs to enhance national awareness and develop strategic leadership skills in the academic community.",
     zero_name: "Eng/ Yara Ashraf ",
     zero_about:
-      "Technical Team Supervisor. Teaching Assistant at the Faculty of Computers and Information, Capital University. Master's degree in Data Science from the Faculty of Computers and Information technolgy, Capital University (formerly Helwan).",
+      "Technical Team Supervisor. Teaching Assistant at the Faculty of Computer science and Artificial Intelligence, Capital University. Master's degree in Data Science from the Faculty of Computers and Information technolgy, Capital University (formerly Helwan).",
     first_name: "Eyad Moneim ",
     first_about:
       "Student at Faculty of Computer Science Helwan national univeristy",
