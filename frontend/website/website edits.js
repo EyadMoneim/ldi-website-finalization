@@ -229,19 +229,19 @@ const texts = {
       "مشرفة الفريق التقني . معيدة بكلية الحاسبات والذكاء الإصطناعى جامعة العاصمة حاصلة ماجستير علوم بيانات بكلية حاسبات ومعلومات جامعة العاصمة (حلوان سابقا)",
     first_name: "اياد محمد عبد منعم ",
     first_about:
-      "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
+      "طالب بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
     second_name: "محمد احمد عبدالمجيد",
     second_about:
-      "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
+      "طالب بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
     third_name: "فرح سامح جابر",
     third_about:
-      "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
+      "طالبة بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
     fourth_name: "ياسين اسامه السيسي",
     fourth_about:
-      "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
+      "طالب بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
     fifth_name: "ماريا جرجس انور",
     fifth_about:
-      "طالب بكلية كلية الحاسبات والذكاء الإصطناعى جامعة حلوان الاهلية",
+      "طالبة بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
     contact0: "تواصل معي",
     contact1: "تواصل معي",
     contact2: "تواصل معي",
@@ -480,22 +480,22 @@ const texts = {
       "Providing intensive training and educational programs to enhance national awareness and develop strategic leadership skills in the academic community.",
     zero_name: "Eng/ Yara Ashraf ",
     zero_about:
-      "Technical Team Supervisor. Teaching Assistant at the Faculty of Computer science and Artificial Intelligence, Capital University. Master's degree in Data Science from the Faculty of Computers and Information technolgy, Capital University (formerly Helwan).",
+      "Technical Team Supervisor. Teaching Assistant at the Faculty of Computer science and Artificial Intelligence, Capital University. Master's degree in Data Science from the Faculty of Computers, Capital University (formerly Helwan).",
     first_name: "Eyad Moneim ",
     first_about:
-      "Student at Faculty of Computer Science Helwan national univeristy",
+      "Student at Faculty of Computer Science, Helwan National Univeristy",
     second_name: "Mohamed Abdelmegeed",
     second_about:
-      "Student at Faculty of Computer Science Helwan national univeristy",
+      "Student at Faculty of Computer Science, Helwan National Univeristy ",
     third_name: "Farah Sameh ",
     third_about:
-      "Student at at Faculty of Computer Science Helwan national univeristy",
+      "Student at at Faculty of Computer Science, Helwan National Univeristy",
     fourth_name: "Yassin Al-sisi",
     fourth_about:
-      "Student at Faculty of Computer Science Helwan national univeristy",
+      "Student at Faculty of Computer Science, Helwan National Univeristy",
     fifth_name: "Maria Gergs ",
     fifth_about:
-      "Student at Faculty of Computer Science Helwan national univeristy",
+      "Student at Faculty of Computer Science, Helwan National Univeristy",
     contact0: "Contact Me",
     contact1: "Contact Me",
     contact2: "Contact Me",
@@ -1104,10 +1104,8 @@ function toggleSubMenu(element) {
 const API_URL = 'https://eyadmoneim-ldi-website.hf.space';
 let globalActivities = [];
 
-// دالة مساعدة لتحويل الأرقام للعربي
 const toArabicDigits = (n) => n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 
-// دالة تنسيق التاريخ المطلوبة
 function formatDate(dateStr, lang) {
     const date = new Date(dateStr);
     const day = date.getDate();
