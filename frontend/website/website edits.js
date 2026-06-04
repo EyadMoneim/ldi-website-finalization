@@ -269,7 +269,7 @@ const texts = {
         doc_abdelaziz_desc: "Prof. Dr. Abdelaziz Hassanein Konsowa is an Egyptian academic and politician. He serves as the Minister of Higher Education and Scientific Research and previously served as President of Alexandria University and Governor of Alexandria.",
 
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
-        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. He serves as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Preparation Institute, and Professor at the Faculty of Social Work, Capital University (formerly Helwan ).",
+        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. Serves as the Minister's of Higher Education and Scientific Research Advisor for Student Activities, Director of the Leadership Development Institute, A Professor at Faculty of Social Work, Capital University (formerly Helwan).",
 
         doc_mohamed: "Dr. Mohamed Abdel Fattah",
         doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Preparation Institute.",
