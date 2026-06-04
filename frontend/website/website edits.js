@@ -95,10 +95,9 @@ const texts = {
         ],
         
         Target_Groups: [
-            "1- طلاب الجامعات",
-            "2- الشباب القادة",
-            "3- أعضاء هيئة التدريس و الهيئة المعاونة",
-            "4- الإداريون ومديرو العموم",
+            "1- طلاب الجامعات و المعاهد",
+            "2- أعضاء هيئة التدريس و الهيئة المعاونة",
+            "3- الإداريون ومديرو العموم",
         ],
         Our_Achievements: "المساهمة في إعداد كوادر قيادية مؤهلة، وتنفيذ برامج وأنشطة شبابية مؤثرة أسهمت في تنمية الوعي.",
         Our_Slogan: "القيادة – المسؤولية – التميز – التعاون – الانتماء",
@@ -270,7 +269,7 @@ const texts = {
         doc_abdelaziz_desc: "Prof. Dr. Abdelaziz Hassanein Konsowa is an Egyptian academic and politician. He serves as the Minister of Higher Education and Scientific Research and previously served as President of Alexandria University and Governor of Alexandria.",
 
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
-        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. He serves as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Preparation Institute, and Professor at the Faculty of Social Work, Capital University (formerly Helwan University).",
+        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. He serves as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Preparation Institute, and Professor at the Faculty of Social Work, Capital University (formerly Helwan ).",
 
         doc_mohamed: "Dr. Mohamed Abdel Fattah",
         doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Preparation Institute.",
@@ -325,10 +324,9 @@ const texts = {
             "3- Creative thinking and problem-solving abilities",
         ],
         Target_Groups: [
-        "1- University Students",
-        "2- Young Leaders",
-        "3- Faculty Members and Teaching Assistants",
-        "4- Administrative Staff and General Directors"
+        "1- University & institute Students",
+        "2- Faculty Members and Teaching Assistants",
+        "3- Administrative Staff and General Directors"
 ],
         ],
         Our_Achievements: "Contributing to the development of qualified leadership cadres and implementing impactful youth programs and initiatives that promote awareness and community engagement.",
