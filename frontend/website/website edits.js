@@ -93,10 +93,12 @@ const texts = {
             "2- مهارات العمل الجماعي",
             "3- التفكير الإبداعي وحل المشكلات",
         ],
+        
         Target_Groups: [
             "1- طلاب الجامعات",
             "2- الشباب القادة",
-            "3- المهتمون بالتطوير الذاتي",
+            "3- أعضاء هيئة التدريس و الهيئة المعاونة",
+            "4- الإداريون ومديرو العموم",
         ],
         Our_Achievements: "المساهمة في إعداد كوادر قيادية مؤهلة، وتنفيذ برامج وأنشطة شبابية مؤثرة أسهمت في تنمية الوعي.",
         Our_Slogan: "القيادة – المسؤولية – التميز – التعاون – الانتماء",
@@ -161,11 +163,11 @@ const texts = {
         descEvent6: "انطلقت فعاليات البرنامج التدريبي للمرشحين لشغل المناصب القيادية بالمراكز والمعاهد والهيئات البحثية بمعهد إعداد القادة، تحت رعاية وزير التعليم العالي والبحث العلمي. وافتتحت أولى المحاضرات بعنوان «فن الإتيكيت والبروتوكول والمراسم» لتوضيح أسس التعامل الرسمي وقواعد البروتوكول في بيئة العمل، بما يسهم في إعداد قيادات مؤهلة قادرة على تطوير المؤسسات البحثية وتعزيز كفاءتها المؤسسية.",
         // ===============high board=====================
         doc_abdelaziz: "أ.د/ عبد العزيز حسانين قنصوه",
-        doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز حسانين محمد سعد قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026 عمل أستاذًا لهندسة البيئة بقسم الهندسة الكيميائية بكلية الهندسة، جامعة الإسكندرية، وشغل سابقًا منصب رئيس جامعة الإسكندرية، كما تولى منصب محافظ الإسكندرية.",
+        doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز حسانين قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026  و كما شغل سابقًا منصب رئيس جامعة الإسكندرية، كما تولى منصب محافظ الإسكندرية.",
         doc_kareem: "ا.د. كريم حسن همام",
-        doc_kareem_desc: "ا.د. كريم حسن همام هو شخصية بارزة في قطاع التعليم العالي والخدمة الاجتماعية في مصر، يشغل مناصب هامة مثل مستشار وزير التعليم العالي والبحث العلمي للأنشطة الطلابية، ومدير معهد إعداد القادة، وأستاذ بكلية الخدمة الاجتماعية بجامعة حلوان.",
+        doc_kareem_desc: "ا.د. كريم حسن همام هو شخصية بارزة في قطاع التعليم العالي، يشغل مناصب هامة مثل مستشار وزير التعليم العالي والبحث العلمي للأنشطة الطلابية، ومدير معهد إعداد القادة، وأستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا).",
         doc_mohamed: "د.محمد عبدالفتاح",
-        doc_mohamed_desc: "د. محمد عبدالفتاح هو أحد أعضاء مجلس إدارة معهد إعداد القادة، ويُعتبر من الشخصيات المهمة في مجال التعليم العالي والبحث العلمي في مصر.",
+        doc_mohamed_desc: "د. محمد عبدالفتاح هو من الشخصيات المهمة في مجال التعليم العالي والبحث العلمي في مصر, كما يشغل منصب نائب مدير معهد إعداد القادة.",
         o_hamdy: "ا. حمدي طه عبدالعزيز",
         o_hamdy_desc: "آمين معهد اعداد القادة - وزارة التعليم العالى والبحث العلمى",
         o_mostafa: " ا. مصطفى كامل شاهين",
@@ -233,7 +235,7 @@ const texts = {
         title4: "Contact Us",
         title5: "Our Partners",
         title6: "History | leadership Institute",
-        title7: "High Board | leadership Institute",
+        title7: "Board of Directors  | leadership Institute",
         title8: "Organizational Structure | leadership Institute",
         title9: "Technical Team | leadership Institute",
 
@@ -252,7 +254,7 @@ const texts = {
         "salaries-media-box": "Media<br>Department",
         "planning-box": "Planning<br>Department",
         "maintenance-box": "Maintenance<br>Department",
-        "human-box": "Human<br>Department",
+        "human-box": "Nutrition <br> Department",
         "gardens-box": "Gardens<br>Department",
         "financial-affairs-box": "Financial Affairs",
         "purchases-box": "Purchases",
@@ -264,17 +266,20 @@ const texts = {
         institute_name: "Leadership Development Institute",
         header_desc: "A historic national institution with a legacy spanning more than a century",
         // ================high board=====================
-        doc_abdelaziz: "Prof.Dr. AbdelAziz Hassanin Qansouh",
-        doc_abdelaziz_desc: "Professor Dr. Abdel Aziz Hassanin Mohamed Saad Qansouh is an Egyptian academic and politician, serving as Minister of Higher Education and Scientific Research since 2026. He worked as a professor of environmental engineering in the Chemical Engineering Department at the Faculty of Engineering, Alexandria University, and previously served as President of Alexandria University, as well as Governor of Alexandria.",
-        doc_kareem: "Prof.Dr. Kareem Hassan Hamam",
-        doc_kareem_desc: "Professor Dr. Kareem Hamam is a prominent figure in Egypt's higher education and social service sector, holding key positions such as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Institute, and Professor at the Faculty of Social Service at Helwan University.",
+        doc_abdelaziz: "Prof. Dr. Abdelaziz Hassanein Konsowa",
+        doc_abdelaziz_desc: "Prof. Dr. Abdelaziz Hassanein Konsowa is an Egyptian academic and politician. He serves as the Minister of Higher Education and Scientific Research and previously served as President of Alexandria University and Governor of Alexandria.",
+
+        doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
+        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. He serves as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Preparation Institute, and Professor at the Faculty of Social Work, Capital University (formerly Helwan University).",
+
         doc_mohamed: "Dr. Mohamed Abdel Fattah",
-        doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the members of the Board of Directors of the Leadership Preparation Institute and is considered one of the important personalities in the field of higher education and scientific research in Egypt.",
-        o_hamdy: "Mr. Hamdy Taha Abdel Aziz",
-        o_hamdy_desc: "Mr. Hamdy Taha Abdel Aziz is a member of the Board of Directors of the Leadership Preparation Institute and is an important figure in Egyptian higher education.",
-        o_mostafa: "Mr. Mostafa Kamal Shahin",
-        o_mostafa_desc: "Mr. Mostafa Kamal Shahin is a member of the Board of Directors of the Leadership Preparation Institute and is an important figure in Egyptian higher education.",
-        // ===
+        doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Preparation Institute.",
+
+        o_hamdy: "Mr. Hamdy Taha Abdelaziz",
+        o_hamdy_desc: "Secretary of the Leadership Preparation Institute - Ministry of Higher Education and Scientific Research.",
+
+        o_mostafa: "Mr. Mostafa Kamel Shaheen",
+        o_mostafa_desc: "Assistant Secretary of the Leadership Preparation Institute - Ministry of Higher Education and Scientific Research.", //------------
         logo__titleeee: "Leadership Institute",
         logo__slogan: "A homeland within a homeland",
 
@@ -307,7 +312,7 @@ const texts = {
             "The Institute of Leadership Preparation is dedicated to preparing youth to become effective leaders in society.",
             "It aims to discover hidden potential and nurture it for responsible future generations.",
         ],
-        Our_Vision: "To prepare a conscious generation capable of leadership and positive change.",
+        Our_Vision: "To prepare an aware generation capable of leadership and driving positive change through the development of knowledge, skills, and national awareness.",
         Our_Mission: [
             "Providing integrated training programs to develop leadership skills.",
             "Enhancing personal capabilities and instilling ethical and national values.",
@@ -320,11 +325,13 @@ const texts = {
             "3- Creative thinking and problem-solving abilities",
         ],
         Target_Groups: [
-            "1- University students",
-            "2- Young leaders",
-            "3- Individuals interested in self-development",
+        "1- University Students",
+        "2- Young Leaders",
+        "3- Faculty Members and Teaching Assistants",
+        "4- Administrative Staff and General Directors"
+],
         ],
-        Our_Achievements: "Contributing to preparing leadership cadres and organizing impactful youth programs.",
+        Our_Achievements: "Contributing to the development of qualified leadership cadres and implementing impactful youth programs and initiatives that promote awareness and community engagement.",
         Our_Slogan: "Leadership – Responsibility – Excellence – Cooperation – Belonging",
         Our_Partners: "",
 
