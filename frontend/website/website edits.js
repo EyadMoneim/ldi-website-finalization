@@ -266,7 +266,7 @@ const texts = {
         // ================high board=====================
         doc_abdelaziz: "Prof.Dr. AbdelAziz Hassanin Qansouh",
         doc_abdelaziz_desc: "Professor Dr. Abdel Aziz Hassanin Mohamed Saad Qansouh is an Egyptian academic and politician, serving as Minister of Higher Education and Scientific Research since 2026. He worked as a professor of environmental engineering in the Chemical Engineering Department at the Faculty of Engineering, Alexandria University, and previously served as President of Alexandria University, as well as Governor of Alexandria.",
-        doc_kareem: "Prof.Dr. Kareem Hamam",
+        doc_kareem: "Prof.Dr. Kareem Hassan Hamam",
         doc_kareem_desc: "Professor Dr. Kareem Hamam is a prominent figure in Egypt's higher education and social service sector, holding key positions such as Advisor to the Minister of Higher Education and Scientific Research for Student Activities, Director of the Leadership Institute, and Professor at the Faculty of Social Service at Helwan University.",
         doc_mohamed: "Dr. Mohamed Abdel Fattah",
         doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the members of the Board of Directors of the Leadership Preparation Institute and is considered one of the important personalities in the field of higher education and scientific research in Egypt.",
