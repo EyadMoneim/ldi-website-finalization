@@ -2977,9 +2977,7 @@ body.dark-mode .director-card {
     justify-content: space-between;
     align-items: center;
     padding: 0 25px;
-    background: var(--nav-glass);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: var(--bg-primary);
     border: 1px solid var(--glass-border);
     border-radius: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -3044,9 +3042,7 @@ body.dark-mode .director-card {
 .glass-menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(15, 26, 46, 0.4);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: var(--bg-primary);
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
@@ -3057,7 +3053,7 @@ body.dark-mode .director-card {
 }
 
 body.dark-mode .glass-menu-overlay {
-    background: rgba(10, 15, 30, 0.6);
+    background: var(--bg-primary);
 }
 
 .glass-menu-overlay.active {
@@ -3098,7 +3094,7 @@ body.dark-mode .glass-menu-overlay {
 .dropdown-header span {
     font-size: 2rem;
     font-weight: 700;
-    color: #0B2D72;
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s ease;
     cursor: pointer;
