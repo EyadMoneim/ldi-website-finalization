@@ -272,13 +272,13 @@ const texts = {
         doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. Serves as the Minister's of Higher Education and Scientific Research Advisor for Student Activities, Director of the Leadership Development Institute, A Professor at Faculty of Social Work, Capital University (formerly Helwan).",
 
         doc_mohamed: "Dr. Mohamed Abdel Fattah",
-        doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Preparation Institute.",
+        doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Development Institute.",
 
         o_hamdy: "Mr. Hamdy Taha Abdelaziz",
-        o_hamdy_desc: "Secretary of the Leadership Preparation Institute - Ministry of Higher Education and Scientific Research.",
+        o_hamdy_desc: "Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.",
 
         o_mostafa: "Mr. Mostafa Kamel Shaheen",
-        o_mostafa_desc: "Assistant Secretary of the Leadership Preparation Institute - Ministry of Higher Education and Scientific Research.", //------------
+        o_mostafa_desc: "Assistant Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.", //------------
         logo__titleeee: "Leadership Institute",
         logo__slogan: "A homeland within a homeland",
 
@@ -308,7 +308,7 @@ const texts = {
         cd_achievements: "Our Achievements",
 
         Who_We_Are: [
-            "The Institute of Leadership Preparation is dedicated to preparing youth to become effective leaders in society.",
+            "The Institute of Leadership Development is dedicated to preparing youth to become effective leaders in society.",
             "It aims to discover hidden potential and nurture it for responsible future generations.",
         ],
         Our_Vision: "To prepare an aware generation capable of leadership and driving positive change through the development of knowledge, skills, and national awareness.",
@@ -385,11 +385,11 @@ const texts = {
         event3: "Awareness Leaders Forum",
         descEvent3: "As part of the 'Awareness Leaders Forum' organized by the Student Activities Sector and the Leadership Institute under the patronage of Dr. Ayman Ashour, Minister of Higher Education and Scientific Research, and implemented under the supervision of Dr. Kareem Hamam, Advisor to the Minister for Student Activities and Director of the Leadership Institute, the institute received Major General Engineer Dr. Hafez Mahmoud, former Assistant Minister of Commerce and Industry and former Assistant Chief of Operations of the Armed Forces, with the participation of students from government, national, technological, private universities, and Egyptian institutes.",
         event4: "The 'Mawadda' Program for University Students",
-        descEvent4: 'The training camp for the "Mawadda" program for university students was launched at the Leadership Preparation Institute, under the supervision of the Ministries of Higher Education and Social Solidarity. The program aims to raise family awareness among young people preparing for marriage, equipping them with the life and social skills needed to build strong and stable families, while promoting values of compassion and understanding. "Mawadda" seeks to prepare an aware generation capable of facing marital and societal challenges and spreading positive awareness within the community.',
+        descEvent4: 'The training camp for the "Mawadda" program for university students was launched at the Leadership Development Institute, under the supervision of the Ministries of Higher Education and Social Solidarity. The program aims to raise family awareness among young people preparing for marriage, equipping them with the life and social skills needed to build strong and stable families, while promoting values of compassion and understanding. "Mawadda" seeks to prepare an aware generation capable of facing marital and societal challenges and spreading positive awareness within the community.',
         event5: '"Leaders of Tomorrow Forum"',
-        descEvent5: "As part of the Leaders of Tomorrow Forum, the Leadership Preparation Institute hosted a dialogue session with university students on renewing religious discourse and strengthening youth awareness and intellectual security. The session emphasized that building youth awareness and protecting them intellectually is a national priority and a key investment in Egypt's future, highlighting the importance of dialogue, moderation, and reinforcing national identity, to prepare a conscious generation capable of facing intellectual and societal challenges.",
+        descEvent5: "As part of the Leaders of Tomorrow Forum, the Leadership Development Institute hosted a dialogue session with university students on renewing religious discourse and strengthening youth awareness and intellectual security. The session emphasized that building youth awareness and protecting them intellectually is a national priority and a key investment in Egypt's future, highlighting the importance of dialogue, moderation, and reinforcing national identity, to prepare a conscious generation capable of facing intellectual and societal challenges.",
         event6: "Training Program for Candidates for Leadership Positions in Research Centers, Institutes, and Research Bodies",
-        descEvent6: "The training program for candidates for leadership positions in research centers, institutes, and research bodies was launched at the Leadership Preparation Institute under the patronage of the Minister of Higher Education and Scientific Research. The first lecture, titled 'Etiquette, Protocol, and Ceremonial Practices,' highlighted the fundamentals of official conduct and workplace protocol, aiming to prepare qualified leaders capable of developing research institutions and enhancing institutional efficiency.",
+        descEvent6: "The training program for candidates for leadership positions in research centers, institutes, and research bodies was launched at the Leadership Development Institute under the patronage of the Minister of Higher Education and Scientific Research. The first lecture, titled 'Etiquette, Protocol, and Ceremonial Practices,' highlighted the fundamentals of official conduct and workplace protocol, aiming to prepare qualified leaders capable of developing research institutions and enhancing institutional efficiency.",
         // === History Page ===
         hist_title_1919: "Historical Roots (1919)",
         hist_desc_1919_1: "Since 1919, the British Army laid the first stone of this edifice, using it as a strategic camp for officers. It started with wooden kiosks, tents, and limited villas designed for that era's needs.",
