@@ -31,7 +31,6 @@
     --nav-glass: rgba(255, 255, 255, 0.12);
     --glass-border: rgba(255, 255, 255, 0.2);
     --hover-bg: rgba(255, 255, 255, 0.1);
-    
 }
 
 body.dark-mode {
@@ -601,14 +600,12 @@ body.dark-mode .moon-icon {
     color: var(--text-secondary);
 }
 
-
-
-
 @media (max-width: 768px) {
     #yassen-card {
         order: -1 !important;
     }
 }
+
 
 /* Slogan card */
 
@@ -2028,7 +2025,7 @@ body.dark-mode .director-card {
 
 .about-mee-yara {
     display: block;
-    font-size: 0.79rem;
+    font-size: 0.724rem;
     color: white;
     margin-top: -6rem;
 }
@@ -2628,7 +2625,6 @@ body.dark-mode .director-card {
 }
 
 
-
 /* ============================================================
    COMPREHENSIVE MOBILE RESPONSIVE
    ============================================================ */
@@ -2646,13 +2642,14 @@ body.dark-mode .director-card {
     body {
         overflow-x: hidden;
     }
-    .scorlling, .scorllingg1 {
+    .scorlling,
+    .scorllingg1 {
         height: 130px;
     }
-    .item, .itemm1 {
+    .item,
+    .itemm1 {
         height: 100%;
     }
-
     /* =======================================
        باقي تنسيقات الموقع للموبايل (مهم جداً)
        ======================================= */
@@ -2855,26 +2852,23 @@ body.dark-mode .director-card {
 
 
 /* Prevent horizontal scroll globally on mobile */
+
 @media (max-width: 900px) {
     body {
         overflow-x: hidden;
     }
-    
     /* إخفاء نافبار اللابتوب بالكامل على الموبايل */
     .topnav {
         display: none !important;
     }
-    
     /* إظهار القائمة الزجاجية الجديدة للموبايل فقط */
     .ai-glass-nav {
         display: flex;
     }
-    
     .scorlling,
     .scorllingg1 {
         height: 130px;
     }
-    
     .item,
     .itemm1 {
         height: 100%;
@@ -2893,8 +2887,8 @@ body.dark-mode .director-card {
 }
 
 
-
 /* توسيط الهيدر واللوجو داخل قائمة الموبايل */
+
 .mobile-nav__header {
     display: flex;
     align-items: center;
@@ -2908,26 +2902,34 @@ body.dark-mode .director-card {
     margin: 0 auto;
 }
 
+
 /* توسيط أزرار الروابط الأساسية */
+
 .mobile-nav__link {
     display: flex;
     align-items: center;
-    justify-content: center; /* بيخلي النص في النص */
+    justify-content: center;
+    /* بيخلي النص في النص */
     text-align: center;
     width: 100%;
     padding: 13px 16px;
     border-radius: 12px;
 }
 
+
 /* في حالة وجود أيقونة جانبية (زي السهم)، بنمنعها تأثر على التوسيط */
+
 .mobile-nav__link i {
     position: absolute;
     inset-inline-end: 20px;
 }
 
+
 /* توسيط الروابط المنسدلة (Sublinks) */
+
 .mobile-nav__sub {
-    padding-inline-start: 0; /* مسح المسافة الجانبية لضمان التوسيط */
+    padding-inline-start: 0;
+    /* مسح المسافة الجانبية لضمان التوسيط */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2941,7 +2943,9 @@ body.dark-mode .director-card {
     border-radius: 10px;
 }
 
+
 /* توسيط أزرار اللغة والـ Theme */
+
 .mobile-nav__actions {
     display: flex;
     flex-direction: column;
@@ -2955,11 +2959,14 @@ body.dark-mode .director-card {
     width: 100%;
 }
 
+
 /* =========================================
    AI-STYLE GLASS NAVBAR
    ========================================= */
+
 .ai-glass-nav {
-    display: none; /* مخفية على الـ desktop افتراضياً */
+    display: none;
+    /* مخفية على الـ desktop افتراضياً */
     position: fixed;
     top: 20px;
     left: 50%;
@@ -2992,7 +2999,9 @@ body.dark-mode .director-card {
     box-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
 }
 
+
 /* Menu Toggle Button */
+
 .menu-toggle {
     background: transparent;
     border: none;
@@ -3029,7 +3038,9 @@ body.dark-mode .director-card {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+
 /* Glass Overlay Menu */
+
 .glass-menu-overlay {
     position: fixed;
     inset: 0;
@@ -3070,20 +3081,21 @@ body.dark-mode .glass-menu-overlay {
     gap: 20px;
 }
 
-.glass-nav-links > li {
+.glass-nav-links>li {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.5s ease;
     transition-delay: calc(var(--i) * 0.1s);
 }
 
-.glass-menu-overlay.active .glass-nav-links > li,
+.glass-menu-overlay.active .glass-nav-links>li,
 .glass-menu-overlay.active .glass-menu-actions {
     opacity: 1;
     transform: translateY(0);
 }
 
-.glass-nav-links a, .dropdown-header span {
+.glass-nav-links a,
+.dropdown-header span {
     font-size: 2rem;
     font-weight: 700;
     color: #0B2D72;
@@ -3093,13 +3105,15 @@ body.dark-mode .glass-menu-overlay {
     font-family: 'Cairo', sans-serif;
 }
 
-.glass-nav-links a:hover, .dropdown-header:hover span {
+.glass-nav-links a:hover,
+.dropdown-header:hover span {
     color: var(--accent-gold);
     text-shadow: 0 0 15px rgba(212, 160, 23, 0.4);
 }
 
 
 /* Sub Menu */
+
 .dropdown-header {
     display: flex;
     align-items: center;
@@ -3126,7 +3140,9 @@ body.dark-mode .glass-menu-overlay {
     color: #E9B63B;
 }
 
+
 /* Actions (Theme & Lang) */
+
 .glass-menu-actions {
     margin-top: 40px;
     display: flex;
@@ -3159,8 +3175,8 @@ body.dark-mode .glass-menu-overlay {
 }
 
 .theme-btn-glass {
-    position: relative; 
-    overflow: hidden;   
+    position: relative;
+    overflow: hidden;
     background: transparent;
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
