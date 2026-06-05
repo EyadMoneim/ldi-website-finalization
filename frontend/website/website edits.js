@@ -33,7 +33,7 @@ const texts = {
         "deputy-box": "وكلاء المعهد",
         "activities-manager-box": "مسئولي الأنشطة",
         "assistant-secretary-box": "أمين مساعد المعهد",
-        "admin-affairs-box": "ادارة<br>الحدائق",
+        "volunteers-box": "السواعد",
         "hr-box": "إدارة<br>الاسكان",
         "it-box": "مسئول<br>تكنولوجيا<br>المعلومات",
         "security-box": "الأمن",
@@ -45,7 +45,6 @@ const texts = {
         "financial-affairs-box": "الشئون المالية",
         "purchases-box": "المشتريات",
         "warehouses-box": "المخازن",
-        "accounts-box": "الحسابات",
 
         // ===farah===
         ministry_title: "وزارة التعليم العالي والبحث العلمي",
@@ -246,7 +245,7 @@ const texts = {
         "deputy-box": "Institute Deputy",
         "activities-manager-box": "Activities Managers",
         "assistant-secretary-box": "Assistant Secretary",
-        "admin-affairs-box": "Administrative<br>Affairs",
+        "volunteers-box": "The<br>Volunteers",
         "hr-box": "Human<br>Resources",
         "it-box": "Information<br>Technology<br>Manager",
         "security-box": "Security",
@@ -258,7 +257,6 @@ const texts = {
         "financial-affairs-box": "Financial Affairs",
         "purchases-box": "Purchases",
         "warehouses-box": "Warehouses",
-        "accounts-box": "Accounts",
 
         // ===farah===
         ministry_title: "Ministry of Higher Education and Scientific Research",
@@ -475,7 +473,7 @@ function setLanguage(lang) {
         "deputy-box",
         "activities-manager-box",
         "assistant-secretary-box",
-        "admin-affairs-box",
+        "volunteers-box",
         "hr-box",
         "it-box",
         "security-box",
@@ -487,7 +485,6 @@ function setLanguage(lang) {
         "financial-affairs-box",
         "purchases-box",
         "warehouses-box",
-        "accounts-box",
         // Home Page
         "description",
         "section1",
