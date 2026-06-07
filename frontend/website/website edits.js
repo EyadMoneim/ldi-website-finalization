@@ -26,7 +26,7 @@ const texts = {
         title9: "الفريق التقني | معهد إعداد القادة",
 
         // === Organizational Structure ===
-        "org-chart-title": "هيكل ألاداري للمعهد",
+        "org-chart-title": "الهيكل الاداري للمعهد",
         "minister-box": "وزير التعليم العالي<br>والبحث والعلمي",
         "director-box": "مدير المعهد",
         "secretary-box": "أمين المعهد",
