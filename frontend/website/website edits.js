@@ -131,9 +131,9 @@ const texts = {
 
         important_links: [
             { text: "وزارة التعليم العالى والبحث العلمى", href: "https://mohesr.gov.eg/", target: "_blank" },
-            { text: "المجلس الأعلي للجامعات", href: "https://scu.eg/", target: "_blank" },
-            { text: "مجلس إدارة المعهد", href: "board_index.html", target: "_blank" },
+            { text: "المجلس الاعلي للجامعات", href: "https://scu.eg/", target: "_blank" },
             { text: "الفريق التقني", href: "tech_team.html", target: "_blank" },
+            { text: "شركاؤنا", href: "clients_index.html", target: "_blank" },
 
         ],
 
@@ -210,6 +210,9 @@ const texts = {
         contact3: "تواصل معي",
         contact4: "تواصل معي",
         contact5: "تواصل معي",
+        divider1: "رئيس مجلس الإدارة",
+        divider2: "المديرون",
+        divider3: "الإداريون",
         // tech namessssss===================
     },
 
@@ -361,8 +364,8 @@ const texts = {
         important_links: [
             { text: "Ministry of Higher Education and Scientific Research", href: "https://mohesr.gov.eg/", target: "_blank" },
             { text: "Supreme Council of Universities", href: "https://scu.eg/", target: "_blank" },
-            { text: "High Board", href: "board_index.html", target: "_blank" },
             { text: "Technical Team", href: "tech_team.html", target: "_blank" },
+            { text: "Our Partners", href: "clients_index.html", target: "_blank" },
 
         ],
 
@@ -425,6 +428,9 @@ const texts = {
         contact3: "Contact Me",
         contact4: "Contact Me",
         contact5: "Contact Me",
+        divider1: "Board Chairman",
+        divider2: "Directors",
+        divider3: "Administrators",
     },
 };
 
@@ -585,6 +591,10 @@ function setLanguage(lang) {
         "fourth_about",
         "fifth_name",
         "fifth_about",
+        "divider1",
+        "divider2",
+        "divider3",
+    
     ];
 
     ids.forEach((id) => {
