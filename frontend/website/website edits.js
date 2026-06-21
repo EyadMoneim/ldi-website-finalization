@@ -129,7 +129,7 @@ const texts = {
         fl_contact: "اتصل بنا",
 
         important_links: [
-            { text: "وزارة التعليم العالى والبحث العلمى", href: "https://mohesr.gov.eg/", target: "_blank" },
+            { text: "وزارة التعليم العالي والبحث العلمي", href: "https://mohesr.gov.eg/", target: "_blank" },
             { text: "المجلس الاعلى للجامعات", href: "https://scu.eg/", target: "_blank" },
             { text: "الفريق التقني", href: "tech_team.html", target: "_blank" },
             { text: "شركاؤنا", href: "clients_index.html", target: "_blank" },
@@ -163,14 +163,20 @@ const texts = {
         doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز حسانين قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026  و كما شغل سابقًا منصب محافظ الإسكندرية، كما تولى منصب رئيس جامعة الإسكندرية.",
         doc_kareem: "أ.د. كريم حسن همام",
         doc_kareem_desc: "أ.د. كريم حسن همام هو شخصية بارزة في قطاع التعليم العالي، يشغل مناصب هامة مثل مستشار وزير التعليم العالي والبحث العلمي للأنشطة الطلابية، ومدير معهد إعداد القادة و أستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا).",
-        doc_mohamed: "د.محمد عبدالفتاح",
-        doc_mohamed_desc: "د. محمد عبدالفتاح هو من الشخصيات المهمة في مجال التعليم العالي والبحث العلمي في مصر، كما يشغل منصب وكيل مدير معهد إعداد القادة و أستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا)",
+        doc_mohamed: "ا.م. محمد عبدالفتاح",
+        doc_mohamed_desc: "ا.م. محمد عبدالفتاح هو من الشخصيات المهمة في مجال التعليم العالي والبحث العلمي في مصر، كما يشغل منصب وكيل مدير معهد إعداد القادة و أستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا)",
         o_hamdy: "أ. حمدي طه عبدالعزيز",
-        o_hamdy_desc: "أمين معهد اعداد القادة - وزارة التعليم العالى والبحث العلمى",
+        o_hamdy_desc: "أمين معهد اعداد القادة - وزارة التعليم العالي والبحث العلمي",
         o_mostafa: " أ. مصطفى كامل شاهين",
-        o_mostafa_desc: "أمين مساعد معهد اعداد القادة - وزارة التعليم العالى والبحث العلمى ",
+        o_mostafa_desc: "أمين مساعد معهد اعداد القادة - وزارة التعليم العالى والبحث العلمي ",
         o_alaa: " أ. علاء محمد",
         o_alaa_desc: "معاون المعهد - الإشراف و المتابعة (شركة الامن و النظافة) ",
+        o_hala: "أ. هالة عز الدين",
+        o_hala_desc: "مديرة شؤون العاملين",
+        o_amr: "أ. عمرو حسن",
+        o_amr_desc: "موظف بإدارة شؤون العاملين",
+        o_ahmed: "أ. احمد توفيق",
+        o_ahmed_desc: "الاخصائي الثقافي بمعهد اعداد القادة",
         o_eman: " أ. ايمان رمضان",
         o_eman_desc: "مديرة مكتب مستشار الوزير للأنشطة الطلابية  ",
 
@@ -214,7 +220,8 @@ const texts = {
         contact4: "تواصل معي",
         contact5: "تواصل معي",
         divider1: "رئيس مجلس الإدارة",
-        divider2: "المديرون",
+        divider2: "المدير",
+        divider_deputies: "الوكلاء",
         divider3: "الإداريون",
         // tech namessssss===================
     },
@@ -275,8 +282,8 @@ const texts = {
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
         doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. Serves as the Minister's of Higher Education and Scientific Research Advisor for Student Activities, Director of the Leadership Development Institute, A Professor at Faculty of Social Work, Capital University (formerly Helwan).",
 
-        doc_mohamed: "Dr. Mohamed Abdel Fattah",
-        doc_mohamed_desc: "Dr. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Development Institute.",
+        doc_mohamed: "Asst. Prof. Mohamed Abdel Fattah",
+        doc_mohamed_desc: "Asst. Prof. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Development Institute.",
 
         o_hamdy: "Mr. Hamdy Taha Abdelaziz",
         o_hamdy_desc: "Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.",
@@ -285,6 +292,12 @@ const texts = {
         o_mostafa_desc: "Assistant Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.", //------------
         o_alaa: "Mr. Alaa Mohamed",
         o_alaa_desc: "Institute Assistant Secretary - Supervision and Follow-up (Security and Cleaning Company)", //------------
+        o_hala: "Ms. Hala Ezzeldin",
+        o_hala_desc: "Director of Personnel Affairs",
+        o_amr: "Mr. Amr Hassan",
+        o_amr_desc: "Personnel Affairs Employee",
+        o_ahmed: "Mr. Ahmed Tawfik",
+        o_ahmed_desc: "Cultural Specialist at the Leadership Development Institute",
         o_eman: "Ms. Eman Ramadan",
         o_eman_desc: "Director of the Office of the Minister's Advisor for Student Activities", //------------
         logo__titleeee: "Leadership Institute",
@@ -435,7 +448,8 @@ const texts = {
         contact4: "Contact Me",
         contact5: "Contact Me",
         divider1: "Board Chairman",
-        divider2: "Directors",
+        divider2: "Director",
+        divider_deputies: "Deputies",
         divider3: "Administrators",
     },
 };
@@ -610,7 +624,14 @@ function setLanguage(lang) {
         "fifth_about",
         "divider1",
         "divider2",
+        "divider_deputies",
         "divider3",
+        "o_hala",
+        "o_hala_desc",
+        "o_amr",
+        "o_amr_desc",
+        "o_ahmed",
+        "o_ahmed_desc",
     
     ];
 
