@@ -751,9 +751,9 @@
             </ul>
 
             <div class="glass-menu-actions" style="--i: 5;">
-                <div class="lang-switch-glass">
-                    <button onclick="setLanguage('ar'); closeAiMenu();">AR</button>
-                    <button onclick="setLanguage('en'); closeAiMenu();">EN</button>
+                                <div class="lang-switch-glass">
+                    <button onclick="setLanguage('ar'); closeAiMenu();">العربية <img src="https://emojigraph.org/media/twitter/flag-egypt_1f1ea-1f1ec.png" class="flag-img" alt="ar"></button>
+                    <button onclick="setLanguage('en'); closeAiMenu();">English <img src="https://emojigraph.org/media/twitter/flag-united-states_1f1fa-1f1f8.png" class="flag-img" alt="en"></button>
                 </div>
                 <button onclick="toggleTheme()" class="theme-btn-glass" aria-label="Toggle Theme">
                 <span class="icon sun-icon">☀</span>
@@ -788,7 +788,7 @@
 
         <!-- ABOUT CARDS -->
         <section class="about-container">
-            <div class="about-card slogan">
+            <div class="about-card slogan full-width">
                 <div class="slogan-loader">
                     <p id="slogan-prefix"></p>
                     <div class="slogan-words">
@@ -801,10 +801,16 @@
                     </div>
                 </div>
             </div>
-            <div class="about-card">
+
+            <div class="about-card full-width">
                 <h3 id="cd_who"></h3>
                 <p id="Who_We_Are"></p>
+                <a href="history_index.html" class="more-link">
+                    <span id="read_more_history"></span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="more-link-icon"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
             </div>
+
             <div class="about-card">
                 <h3 id="cd_vision"></h3>
                 <p id="Our_Vision"></p>
@@ -813,9 +819,31 @@
                 <h3 id="cd_mission"></h3>
                 <p id="Our_Mission"></p>
             </div>
-            <div class="about-card">
+            <div class="about-card full-width">
                 <h3 id="cd_programs"></h3>
-                <p id="Institute_Programs"></p>
+                <div class="programs-timeline">
+                    <div class="program-item">
+                        <h4 id="prog1_title" class="program-title"></h4>
+                        <div class="timeline-divider">
+                            <div class="timeline-diamond"></div>
+                        </div>
+                        <p id="prog1_desc" class="program-desc"></p>
+                    </div>
+                    <div class="program-item">
+                        <h4 id="prog2_title" class="program-title"></h4>
+                        <div class="timeline-divider">
+                            <div class="timeline-diamond"></div>
+                        </div>
+                        <p id="prog2_desc" class="program-desc"></p>
+                    </div>
+                    <div class="program-item">
+                        <h4 id="prog3_title" class="program-title"></h4>
+                        <div class="timeline-divider">
+                            <div class="timeline-diamond"></div>
+                        </div>
+                        <p id="prog3_desc" class="program-desc"></p>
+                    </div>
+                </div>
             </div>
             <div class="about-card">
                 <h3 id="cd_targets"></h3>

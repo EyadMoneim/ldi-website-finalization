@@ -75,29 +75,28 @@ const texts = {
         cd_programs: "برامج المعهد",
         cd_targets: "الفئات المستهدفة",
         cd_achievements: "إنجازاتنا",
+        read_more_history: "المزيد",
 
         Who_We_Are: [
-            "المعهد يهتم بإعداد الشباب ليصبحوا قادة فعالين في المجتمع.",
-            "نهدف لاكتشاف القدرات الكامنة لدى الشباب وتنميتها.",
+            "أنشئ المعهد في عام 1919م حيث تم إنشاؤه بمعرفة الجيش الإنجليزي لإستخدامه كمعسكر للضباط وتم إقامة بعض المنشآت الداخلية.",
+            "ثم أصبح عام 1990م تحت إشراف وزارة التعليم العالي وتم تعديل المسمى إلى ( معهد إعداد القادة ).",
         ],
-        Our_Vision: "إعداد جيل واعٍ قادر على القيادة وإحداث التغيير الإيجابي، من خلال تنمية الفكر والمهارات والوعي الوطني.",
-        Our_Mission: [
-            "تقديم برامج تدريبية متكاملة لتطوير مهارات القيادة.",
-            "تنمية القدرات الشخصية وغرس القيم الأخلاقية والوطنية.",
-        ],
-        Institute_Programs: [
-            "يقدم المعهد برامج متنوعة لتطوير مهارات الشباب.",
-            "تركز البرامج على:",
-            "1- مهارات القيادة والتواصل",
-            "2- مهارات العمل الجماعي",
-            "3- التفكير الإبداعي وحل المشكلات",
-        ],
+        Our_Vision: "نطمح أن يكون المعهد ممثلاً لوزارة التعليم العالي في تقديم برامج وخدمات معنية بإعداد وتطوير قادة الغد بمصر والعالم من خلال برامج وأنشطة تواكب متطلبات الخطط الإستراتيجية لجمهورية مصر العربية.",
+        Our_Mission:
+            "إتاحة الفرص ومجالات المشاركة الحقيقية ووضع وتنفيذ الشراكات مع الجهات ذات الإختصاص لإعداد وتأهيل القيادات الجامعية والمساهمة في بناء الشخصية الجامعية من خلال إكتشاف المواهب وصقلها وتأسيس وبناء منظومة من البرامج الإستثنائية للقيادة والإنشطة التنموية والتثقيفية والتوعوية لمواكبة التطور العالمي .",
+           
 
         Target_Groups: [
-            "1- طلاب الجامعات و المعاهد",
-            "2- أعضاء هيئة التدريس و الهيئة المعاونة",
+            "1- طلاب الجامعات والمعاهد",
+            "2- أعضاء هيئة التدريس والهيئة المعاونة",
             "3- الإداريون ومديرو العموم",
         ],
+        prog1_title: "برنامج إعداد القائد العام",
+        prog1_desc: "ويهدف هذا البرنامج إلي إكساب المهارات القيادية العامة للطلاب من مختلف الجامعات والمعاهد",
+        prog2_title: "برنامج إعداد القائد التخصصي",
+        prog2_desc: "يهدف هذا البرنامج إلي إكساب المهارات القيادية في مجالات متخصصة لكل من ( الطلاب - أعضاء هيئة التدريس - الهيئة المعاونة - الإداريين - أخصائي رعاية الشباب )",
+        prog3_title: "برنامج إعداد القائد العربي و الأفريقي",
+        prog3_desc: "يهدف هذا البرنامج إلي تجميع الشباب العربي والإفريقى من مختلف دول العالم تحت مظلة واحدة، هدفها إعداد قائد عربى وإفريقى",
         Our_Achievements: "المساهمة في إعداد كوادر قيادية مؤهلة، وتنفيذ برامج وأنشطة شبابية مؤثرة أسهمت في تنمية الوعي.",
         Our_Slogan: "القيادة – المسؤولية – التميز – التعاون – الانتماء",
         Our_Partners: "",
@@ -131,7 +130,7 @@ const texts = {
 
         important_links: [
             { text: "وزارة التعليم العالى والبحث العلمى", href: "https://mohesr.gov.eg/", target: "_blank" },
-            { text: "المجلس الاعلي للجامعات", href: "https://scu.eg/", target: "_blank" },
+            { text: "المجلس الاعلى للجامعات", href: "https://scu.eg/", target: "_blank" },
             { text: "الفريق التقني", href: "tech_team.html", target: "_blank" },
             { text: "شركاؤنا", href: "clients_index.html", target: "_blank" },
 
@@ -170,6 +169,10 @@ const texts = {
         o_hamdy_desc: "أمين معهد اعداد القادة - وزارة التعليم العالى والبحث العلمى",
         o_mostafa: " أ. مصطفى كامل شاهين",
         o_mostafa_desc: "أمين مساعد معهد اعداد القادة - وزارة التعليم العالى والبحث العلمى ",
+        o_alaa: " أ. علاء محمد",
+        o_alaa_desc: "معاون المعهد - الإشراف و المتابعة (شركة الامن و النظافة) ",
+        o_eman: " أ. ايمان رمضان",
+        o_eman_desc: "مديرة مكتب مستشار الوزير للأنشطة الطلابية  ",
 
         logo__titleeee: "معهد إعداد القادة",
         logo__slogan: "بناء قائد.. بناء وطن",
@@ -280,6 +283,10 @@ const texts = {
 
         o_mostafa: "Mr. Mostafa Kamel Shaheen",
         o_mostafa_desc: "Assistant Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.", //------------
+        o_alaa: "Mr. Alaa Mohamed",
+        o_alaa_desc: "Institute Assistant Secretary - Supervision and Follow-up (Security and Cleaning Company)", //------------
+        o_eman: "Ms. Eman Ramadan",
+        o_eman_desc: "Director of the Office of the Minister's Advisor for Student Activities", //------------
         logo__titleeee: "Leadership Institute",
         logo__slogan: "A homeland within a homeland",
 
@@ -307,29 +314,28 @@ const texts = {
         cd_programs: "Institute Programs",
         cd_targets: "Target Groups",
         cd_achievements: "Our Achievements",
+        read_more_history: "More",
 
         Who_We_Are: [
-            "The Institute of Leadership Development is dedicated to preparing youth to become effective leaders in society.",
-            "It aims to discover hidden potential and nurture it for responsible future generations.",
+            "The Institute dates back to 1919, when it was established by the British Army as an officers’ camp. Several internal facilities and supporting structures were subsequently developed to serve its operational needs.",
+            "In 1990, the Institute was placed under the supervision of the Ministry of Higher Education and was subsequently renamed the Leadership Development Institute.",
         ],
-        Our_Vision: "To prepare an aware generation capable of leadership and driving positive change through the development of knowledge, skills, and national awareness.",
-        Our_Mission: [
-            "Providing integrated training programs to develop leadership skills.",
-            "Enhancing personal capabilities and instilling ethical and national values.",
-        ],
-        Institute_Programs: [
-            "The institute offers various programs to develop youth skills.",
-            "Programs focus on:",
-            "1- Leadership and communication skills",
-            "2- Teamwork skills",
-            "3- Creative thinking and problem-solving abilities",
-        ],
+        Our_Vision: "Our vision is for the Institute to be the Ministry of Higher Education’s leading representative in providing programs and services that prepare and empower the leaders of tomorrow in Egypt and globally, through innovative programs and activities aligned with the strategic objectives of the Arab Republic of Egypt.",
+        Our_Mission: 
+        "To create opportunities for meaningful engagement and foster strategic partnerships with specialized organizations to prepare and empower university leaders. We are committed to shaping well-rounded university personalities through talent identification and development, while establishing an integrated framework of distinguished leadership, developmental, educational, and awareness programs that align with global progress and emerging challenges.",
+        
+        
         Target_Groups: [
             "1- University & institute Students",
             "2- Faculty Members and Teaching Assistants",
             "3- Administrative Staff and General Directors"
         ],
-
+        prog1_title: "General Leadership Preparation Program",
+        prog1_desc: "This program aims to provide general leadership skills to students from various universities and institutes.",
+        prog2_title: "Specialized Leadership Preparation Program",
+        prog2_desc: "This program aims to provide leadership skills in specialized fields for (Students - Faculty Members - Support Staff - Administrators - Youth Welfare Specialists).",
+        prog3_title: "Arab and African Leadership Preparation Program",
+        prog3_desc: "This program aims to bring together Arab and African youth from various countries under one umbrella, with the goal of preparing Arab and African leaders.",
         Our_Achievements: "Contributing to the development of qualified leadership cadres and implementing impactful youth programs and initiatives that promote awareness and community engagement.",
         Our_Slogan: "Leadership – Responsibility – Excellence – Cooperation – Belonging",
         Our_Partners: "",
@@ -510,8 +516,15 @@ function setLanguage(lang) {
         "cd_vision",
         "cd_mission",
         "cd_programs",
+        "prog1_title",
+        "prog1_desc",
+        "prog2_title",
+        "prog2_desc",
+        "prog3_title",
+        "prog3_desc",
         "cd_targets",
         "cd_achievements",
+        "read_more_history",
         // Footer & Misc
         "Our_Achievements",
         "Our_Slogan",
@@ -548,6 +561,10 @@ function setLanguage(lang) {
         "o_hamdy_desc",
         "o_mostafa",
         "o_mostafa_desc",
+        "o_alaa",
+        "o_alaa_desc",
+        "o_eman",
+        "o_eman_desc",
         "logo-title",
         "logo-slogan",
 

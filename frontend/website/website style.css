@@ -65,6 +65,16 @@ body.dark-mode {
     box-sizing: border-box;
 }
 
+::selection {
+    background-color: var(--accent-gold-light);
+    color: #0f1a2e;
+}
+
+::-moz-selection {
+    background-color: var(--accent-gold-light);
+    color: #0f1a2e;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -552,7 +562,7 @@ body.dark-mode .moon-icon {
     margin: 50px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
     font-family: "Cairo", sans-serif;
 }
@@ -568,6 +578,10 @@ body.dark-mode .moon-icon {
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
     position: relative;
     overflow: hidden;
+}
+
+.about-card.full-width {
+    grid-column: 1 / -1;
 }
 
 .about-card::before {
@@ -598,6 +612,103 @@ body.dark-mode .moon-icon {
     font-size: 0.98rem;
     line-height: 1.9;
     color: var(--text-secondary);
+}
+
+/* Programs Timeline Layout */
+.programs-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.program-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+.program-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.timeline-divider {
+    position: relative;
+    height: 3px;
+    background-color: var(--accent);
+    margin: 15px 0 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-diamond {
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent);
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.program-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .programs-timeline {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .program-title {
+        min-height: auto;
+    }
+}
+
+.more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent-gold);
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.more-link:hover {
+    background: var(--accent-gold);
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+html[dir="ltr"] .more-link:hover {
+    transform: translateX(5px);
+}
+
+.more-link-icon {
+    transition: transform 0.3s ease;
+}
+
+html[dir="rtl"] .more-link-icon {
+    transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {
@@ -2406,6 +2517,7 @@ body.dark-mode .director-card {
     }
     .director-card {
         width: 90%;
+        margin: 0 auto;
         height: 420px;
     }
     .org-box {
@@ -3178,6 +3290,7 @@ body.dark-mode .glass-menu-overlay {
 .glass-menu-actions {
     margin-top: 40px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -3187,17 +3300,26 @@ body.dark-mode .glass-menu-overlay {
     transition-delay: 0.6s;
 }
 
+.lang-switch-glass {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
 .lang-switch-glass button {
     background: transparent;
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
     padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 8px;
     font-family: 'Cairo', sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .lang-switch-glass button:hover {
@@ -3231,4 +3353,109 @@ body.dark-mode .glass-menu-overlay {
 .theme-btn-glass:hover {
     border-color: var(--accent-gold);
     color: var(--accent-gold);
+}
+
+/* =========================================
+   BOARD CARD STYLES (No Images)
+   ========================================= */
+
+.board-card {
+    background: var(--card-glass);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 20px;
+    padding: 30px;
+    width: 350px;
+    min-height: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.board-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0; /* RTL context */
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-gold));
+    border-radius: 0 4px 4px 0;
+    opacity: 0.8;
+}
+
+html[dir="ltr"] .board-card::before {
+    right: auto;
+    left: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.board-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(26, 61, 109, 0.15);
+}
+
+.board-card.director-card {
+    border: 2px solid var(--accent-gold);
+    width: 400px;
+    min-height: 280px;
+    height: auto;
+}
+
+.board-card__title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.board-card__line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin-bottom: 15px;
+    transition: width 0.4s ease;
+    z-index: 2;
+}
+
+.board-card:hover .board-card__line {
+    width: 100px;
+}
+
+.board-card__description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    z-index: 2;
+}
+
+/* Dark mode support */
+body.dark-mode .board-card {
+    background: var(--card-glass);
+}
+body.dark-mode .board-card__title {
+    color: var(--text-primary);
+}
+body.dark-mode .board-card__description {
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsiveness for board-card */
+@media (max-width: 768px) {
+    .board-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .board-card.director-card {
+        width: 90%;
+    }
 }
