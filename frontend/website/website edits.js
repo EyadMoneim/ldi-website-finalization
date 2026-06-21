@@ -162,9 +162,9 @@ const texts = {
         doc_abdelaziz: "أ.د/ عبد العزيز حسانين قنصوه",
         doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز حسانين قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026  و كما شغل سابقًا منصب محافظ الإسكندرية، كما تولى منصب رئيس جامعة الإسكندرية.",
         doc_kareem: "أ.د. كريم حسن همام",
-        doc_kareem_desc: "أ.د. كريم حسن همام هو شخصية بارزة في قطاع التعليم العالي، يشغل مناصب هامة مثل مستشار وزير التعليم العالي والبحث العلمي للأنشطة الطلابية، ومدير معهد إعداد القادة و أستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا).",
-        doc_mohamed: "ا.م. محمد عبدالفتاح",
-        doc_mohamed_desc: "ا.م. محمد عبدالفتاح هو من الشخصيات المهمة في مجال التعليم العالي والبحث العلمي في مصر، كما يشغل منصب وكيل مدير معهد إعداد القادة و أستاذ بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقا)",
+        doc_kareem_desc: "الأستاذ الدكتور كريم حسن همام أستاذ تنظيم المجتمع بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقاً)، ومستشار وزير التعليم العالي للأنشطة الطلابية، ومدير معهد إعداد القادة بحلوان. يتمتع بخبرة طويلة في مجال العمل الطلابي وتنمية القيادات الشبابية، وله إسهامات بارزة في دعم وتطوير الأنشطة الطلابية على مستوى الجامعات المصرية.",
+        doc_mohamed: "أ.م. محمد عبدالفتاح",
+        doc_mohamed_desc: "الأستاذ المساعد الدكتور محمد عبدالفتاح أستاذ مساعد بكلية الخدمة الاجتماعية بجامعة العاصمة (حلوان سابقًا)، ووكيل مدير معهد إعداد القادة. يشارك في تطوير البرامج التدريبية والأنشطة الموجهة لإعداد القيادات الشبابية وتنمية مهارات الطلاب في مختلف المجالات",
         o_hamdy: "أ. حمدي طه عبدالعزيز",
         o_hamdy_desc: "أمين معهد اعداد القادة - وزارة التعليم العالي والبحث العلمي",
         o_mostafa: " أ. مصطفى كامل شاهين",
@@ -220,9 +220,9 @@ const texts = {
         contact4: "تواصل معي",
         contact5: "تواصل معي",
         divider1: "رئيس مجلس الإدارة",
-        divider2: "المدير",
-        divider_deputies: "الوكلاء",
-        divider3: "الإداريون",
+        divider2: "مدير المعهد",
+        divider_deputies: "وكلاء المعهد",
+        divider3: "إداريون المعهد",
         // tech namessssss===================
     },
 
@@ -280,10 +280,10 @@ const texts = {
         doc_abdelaziz_desc: "Prof. Dr. Abdelaziz Hassanein Konsowa is an Egyptian academic and politician. He serves as the Minister of Higher Education and Scientific Research and previously served as President of Alexandria University and Governor of Alexandria.",
 
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
-        doc_kareem_desc: "Prof. Dr. Kareem Hassan Hamam is a prominent figure in Egypt’s higher education sector. Serves as the Minister's of Higher Education and Scientific Research Advisor for Student Activities, Director of the Leadership Development Institute, A Professor at Faculty of Social Work, Capital University (formerly Helwan).",
+        doc_kareem_desc: "Professor Dr. Karim Hassan Hemam is a Professor of Community Organization at the Faculty of Social Work, Capital University, an Advisor to the Minister of Higher Education and Scientific Research for Student Activities, and the Director of the Leadership Preparation Institute in Helwan. Throughout his distinguished career, he has played a pivotal role in developing student activities and fostering youth leadership across Egyptian universities, contributing significantly to the preparation of future generations of leaders.",
 
         doc_mohamed: "Asst. Prof. Mohamed Abdel Fattah",
-        doc_mohamed_desc: "Asst. Prof. Mohamed Abdel Fattah is one of the important figures in the ministry of higher education and scientific research in Egypt. He also serves as Deputy Director of the Leadership Development Institute.",
+        doc_mohamed_desc: "Assistant Professor Dr. Mohamed Abdel Fattah is an Assistant Professor at the Faculty of Social Work, Capital University (formerly Helwan University), and serves as the Deputy Director of the Leadership Preparation Institute. He contributes to the development of training programs and activities aimed at preparing young leaders and enhancing students' skills across various fields, supporting their personal, academic, and professional growth.",
 
         o_hamdy: "Mr. Hamdy Taha Abdelaziz",
         o_hamdy_desc: "Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.",
