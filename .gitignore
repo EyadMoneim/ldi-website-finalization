@@ -1,3 +1,6 @@
-backend/source/__pycache__/
-backend/source/main.py
-frontend/admin/
+main.py
+Dockerfile
+requirements.txt
+start.bat
+*.db
+__pycache__/

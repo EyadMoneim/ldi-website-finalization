@@ -1076,7 +1076,7 @@ function toggleSubMenu(element) {
 // ============ FETCH DYNAMIC DATA (API) ===============
 // =====================================================
 
-const API_URL = 'https://eyadmoneim-ldi-website.hf.space';
+const API_URL = 'https://eyadmoneim-ldi-db.hf.space';
 let globalActivities = [];
 
 const toArabicDigits = (n) => n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩' [d]);
