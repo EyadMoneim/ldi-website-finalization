@@ -3376,7 +3376,7 @@ body.dark-mode .glass-menu-overlay {
     box-shadow: var(--glass-shadow);
     border-radius: 20px;
     padding: 30px;
-    width: 350px;
+    width: 360px;
     min-height: 250px;
     height: auto;
     display: flex;

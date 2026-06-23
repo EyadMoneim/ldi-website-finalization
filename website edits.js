@@ -59,7 +59,7 @@ const texts = {
         section3: "انضم إلينا لتتعلم كيف تصبح قائدًا ناجحًا.",
 
         // === Partners Page (New) ===
-        partners_intro_title: "شراكات فعالة",
+        partners_intro_title: "شركاؤنا",
         partners_intro_desc: "يؤمن معهد إعداد القادة بأن النجاح الحقيقي يبدأ من التعاون، لذلك يحرص على بناء شراكات فعّالة مع مؤسسات وهيئات مختلفة، وعلى رأسها الجامعات الحكومية والأهلية، التي تشاركه نفس الرؤية والرسالة في دعم الشباب وبناء القيادات. وتسهم هذه الشراكات في تبادل الخبرات، وتطوير البرامج التدريبية، وإتاحة فرص حقيقية تمكّن الشباب من صقل مهاراتهم وتعزيز دورهم في المشاركة الفعالة بخدمة المجتمع.",
         partners_intro_desc2: "ينظم معهد إعداد القادة العديد من الأنشطة التي تهدف إلى تطوير مهارات القيادة لدى الشباب. تشمل هذه الأنشطة ورش عمل، جلسات تدريبية، وبرامج خدمة المجتمع التي تمكّن الشباب من تولي أدوار قيادية فعّالة.",
         partners_intro_title2: "أنشطتنا",
@@ -81,19 +81,19 @@ const texts = {
 
         Who_We_Are: [
             "أنشئ المعهد في عام 1919م حيث تم إنشاؤه بمعرفة الجيش الإنجليزي لإستخدامه كمعسكر للضباط وتم إقامة بعض المنشآت الداخلية.",
-            "ثم أصبح عام 1990م تحت إشراف وزارة التعليم العالي وتم تعديل المسمى إلى ( معهد إعداد القادة ).",
+            "ثم أصبح عام 1990م تحت إشراف وزارة التعليم العالي والبحث العلمي وتم تعديل المسمى إلى ( معهد إعداد القادة ).",
         ],
-        Our_Vision: "نطمح أن يكون المعهد ممثلاً لوزارة التعليم العالي في تقديم برامج وخدمات معنية بإعداد وتطوير قادة الغد بمصر والعالم من خلال برامج وأنشطة تواكب متطلبات الخطط الإستراتيجية لجمهورية مصر العربية.",
-        Our_Mission: "إتاحة الفرص ومجالات المشاركة الحقيقية ووضع وتنفيذ الشراكات مع الجهات ذات الإختصاص لإعداد وتأهيل القيادات الجامعية والمساهمة في بناء الشخصية الجامعية من خلال إكتشاف المواهب وصقلها وتأسيس وبناء منظومة من البرامج الإستثنائية للقيادة والإنشطة التنموية والتثقيفية والتوعوية لمواكبة التطور العالمي .",
+        Our_Vision: "نطمح أن يكون المعهد ممثلاً لوزارة التعليم العالي و البحث العلمي في تقديم برامج وخدمات معنية بإعداد وتطوير قادة الغد بمصر والعالم من خلال برامج وأنشطة تواكب متطلبات الخطط الإستراتيجية لجمهورية مصر العربية.",
+        Our_Mission: "إتاحة الفرص ومجالات المشاركة الحقيقية ووضع وتنفيذ الشراكات مع الجهات ذات الاختصاص لإعداد وتأهيل القيادات الجامعية والمساهمة في بناء الشخصية الجامعية من خلال اكتشاف المواهب وصقلها وتأسيس وبناء منظومة من البرامج الإستثنائية للقيادة والانشطة التنموية والتثقيفية والتوعوية لمواكبة التطور العالمي .",
 
 
         Target_Groups: [
-            "1- طلاب الجامعات والمعاهد",
+            "1-طلاب الجامعات والمعاهد المصرية و العربية",
             "2- أعضاء هيئة التدريس والهيئة المعاونة",
             "3- الإداريون ومديرو العموم",
         ],
         prog1_title: "برنامج إعداد القائد العام",
-        prog1_desc: "ويهدف هذا البرنامج إلي إكساب المهارات القيادية العامة للطلاب من مختلف الجامعات والمعاهد",
+        prog1_desc: "يهدف هذا البرنامج إلي إكساب المهارات القيادية العامة للطلاب من مختلف الجامعات والمعاهد",
         prog2_title: "برنامج إعداد القائد التخصصي",
         prog2_desc: "يهدف هذا البرنامج إلي إكساب المهارات القيادية في مجالات متخصصة لكل من ( الطلاب - أعضاء هيئة التدريس - الهيئة المعاونة - الإداريين - أخصائي رعاية الشباب )",
         prog3_title: "برنامج إعداد القائد العربي و الأفريقي",
@@ -112,7 +112,7 @@ const texts = {
 
         // === Footer Data ===
         Contact_Us: "تواصل معنا",
-        Address: "معهد إعداد القادة، حلوان – نهاية شارع عبدالله باشا – عين حلوان",
+        Address: "معهد إعداد القادة – نهاية شارع عبدالله باشا – عين حلوان",
         Email: "ldi@mohesr.gov.eg",
         Phone: "228165187",
 
@@ -163,7 +163,7 @@ const texts = {
         doc_abdelaziz: "أ.د/ عبد العزيز قنصوه",
         doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026  و كما شغل سابقًا منصب محافظ الإسكندرية، كما تولى منصب رئيس جامعة الإسكندرية.",
         doc_kareem: "أ.د. كريم حسن همام",
-        doc_kareem_desc: `الأستاذ الدكتور كريم حسن همام أستاذ تنظيم المجتمع بكلية الخدمة الاجتماعية بجامعة العاصمة، ومستشار وزير التعليم العالي والبحث العلمي للأنشطة الطلابية، ومدير معهد إعداد القادة بحلوان. يتمتع بخبرة طويلة في مجال العمل الطلابي وتنمية القيادات الشبابية، وله إسهامات بارزة في دعم وتطوير الأنشطة الطلابية على مستوى الجامعات المصرية.`,
+        doc_kareem_desc: "• أستاذ تنظيم المجتمع بكلية الخدمة الاجتماعية بجامعة العاصمة<br>• مستشار وزير التعليم العالي للأنشطة الطلابية<br>• مدير معهد إعداد القادة",
         doc_mohamed: "أ.م.د محمد عبدالفتاح",
         doc_mohamed_desc: "• أستاذ التخطيط الاجتماعي المساعد بكلية الخدمة الاجتماعية بجامعة العاصمة<br>• وكيل مدير معهد إعداد القادة",
         o_hamdy: "أ. حمدي طه عبدالعزيز",
@@ -171,39 +171,43 @@ const texts = {
         o_mostafa: " أ. مصطفى كامل شاهين",
         o_mostafa_desc: "أمين مساعد معهد اعداد القادة - وزارة التعليم العالى والبحث العلمي ",
         o_alaa: " أ. علاء محمد",
-        o_alaa_desc: "معاون المعهد - الإشراف و المتابعة (شركة الامن و النظافة) ",
+        o_alaa_desc: "معاون المعهد - الإشراف و المتابعة (شركة الامن و النظافة)  - معهد اعداد القادة",
         o_hala: "أ. هالة عز الدين",
-        o_hala_desc: "مديرة شؤون العاملين",
+        o_hala_desc: "مديرة شؤون العاملين - معهد اعداد القادة",
         o_amr: "أ. عمرو حسن",
-        o_amr_desc: "مسوؤل بإدارة شؤون العاملين.",
+        o_amr_desc: "مسوؤل بإدارة شؤون العاملين - معهد اعداد القادة",
         o_ahmed: "أ. احمد توفيق",
-        o_ahmed_desc: "الاخصائي الثقافي بمعهد اعداد القادة",
+        o_ahmed_desc: "الاخصائي الثقافي - معهد اعداد القادة",
         o_eman: " أ. ايمان رمضان",
         o_eman_desc: "علاقات عامة - معهد اعداد القادة.",
+        o_ahmed_ashraf: " أ. احمد اشرف",
+        o_ahmed_ashraf_desc: "أمين المخازن - معهد اعداد القادة.",
+        o_ahmed_lam3e: " أ. احمد لمعي",
+        o_ahmed_lam3e_desc: "علاقات عامة - معهد اعداد القادة.",
 
         logo__titleeee: "معهد إعداد القادة",
         logo__slogan: "بناء قائد.. بناء وطن",
         // === History Page ===
         hist_title_1919: "الجذور التاريخية (1919م)",
         hist_desc_1919_1: "منذ عام 1919م، وضع الجيش الإنجليزي اللبنة الأولى لهذا الصرح، حيث استُخدم كمعسكر استراتيجي للضباط. لم يكن المعهد حينها كما نراه اليوم، بل كانت ملامحه الأولى تتجسد في أكشاك خشبية وخيام وفيلات محدودة.",
-        hist_desc_1919_2: "ظلت الإقامة في البداية تعتمد على تلك الأكشاك والمساحات المتاحة في الفيلات، واستمر العمل بهذا النمط حتى انتقال تبعية المعهد لوزارة التعليم العالي.",
+        hist_desc_1919_2: "ظلت الإقامة في البداية تعتمد على تلك الأكشاك والمساحات المتاحة في الفيلات، واستمر العمل بهذا النمط حتى انتقال تبعية المعهد لوزارة التعليم العالي والبحث العلمي.",
         hist_acres: "فداناً من المساحات الخضراء",
         hist_nature_title: "الطبيعة والعمارة الإنجليزية",
-        hist_nature_desc: "يمتد المعهد على مساحة شاسعة، مشكلاً رئة خضراء في قلب حلوان. الحدائق المتناسقة والأشجار المعمرة التي تملأ الأركان ليست مجرد نباتات، بل هي سجل تاريخي حسي.",
+        hist_nature_desc: "يمتد المعهد على مساحة شاسعة، مشكّلًا رئة خضراء في قلب حلوان. الحدائق المتناسقة والأشجار المعمّرة التي تملأ الأركان ليست مجرد نباتات، بل هي شاهد حي على تاريخ المعهد وتطوره عبر العقود.",
         hist_nature_quote: '"مسرح المعهد.. تحفة معمارية صممها مهندسو الجيش الإنجليزي، لا يزال يحتفظ بطابعه الفريد ليشهد على التقاء الفن بالعمارة التاريخية."',
         hist_1941_title: "المعسكر الكشفي",
         hist_1941_desc: 'تولت الإدارة العامة للتربية الرياضية والعسكرية الإشراف عليه، وكان يسمى حينها "المعسكر الدائم للكشافة".',
         hist_national_title: "التحولات الوطنية",
         hist_national_desc: "انتقلت التبعية بين هيئة التحرير والاتحاد الاشتراكي ومنظمة الشباب، حتى ضم لمديرية الشباب بمحافظة القاهرة عام 1968م.",
-        hist_mohe_title: "حقبة وزارة التعليم العالي",
+        hist_mohe_title: "حقبة وزارة التعليم العالي والبحث العلمي",
         hist_mohe_desc: "أصبح المعهد تحت إشراف وزارة التعليم العالي بالكامل، وتم تعديل المسمى لتقديم دورات تثقيفية مكثفة لشباب الجامعات والمعاهد بجمهورية مصر العربية والدول العربية والأفريقية.",
         hist_vm_title: "رؤيتنا ورسالتنا الحديثة",
         hist_vision_head: "رؤيتنا",
-        hist_vision_text: "أن نكون المعهد الرائد إقليمياً في صناعة القادة وإعداد الكوادر الشبابية القادرة على قيادة قاطرة التنمية.",
+        hist_vision_text: "أن يكون المعهد الرائد إقليمياً في صناعة القادة وإعداد الكوادر الشبابية القادرة على قيادة قاطرة التنمية.",
         hist_mission_head: "رسالتنا",
         hist_mission_text: "تقديم برامج تدريبية وتثقيفية مكثفة لتعزيز الوعي الوطني وتنمية مهارات القيادة الإستراتيجية لدى المجتمع الأكاديمي.",
         zero_name: "المهندسة/ يارا أشرف",
-        zero_about: "مشرفة الفريق التقني . معيدة بكلية الحاسبات والذكاء الإصطناعى جامعة العاصمة حاصلة ماجستير علوم بيانات بكلية الحاسبات والذكاء الإصطناعى جامعة العاصمة (حلوان سابقا)",
+        zero_about: "مشرفة الفريق التقني، ومعيدة بكلية الحاسبات والذكاء الاصطناعي بجامعة العاصمة ، وطالبة دراسات عليا في تخصص علوم البيانات بالكلية نفسها.",
         first_name: "اياد محمد عبد منعم ",
         first_about: "طالب بكلية علوم الحاسب و تكنولوجيا المعلومات جامعة حلوان الاهلية",
         second_name: "محمد احمد عبدالمجيد",
@@ -281,7 +285,7 @@ const texts = {
         doc_abdelaziz_desc: "Prof. Dr. Abdelaziz Konsowa is an Egyptian academic and politician. He serves as the Minister of Higher Education and Scientific Research and previously served as President of Alexandria University and Governor of Alexandria.",
 
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
-        doc_kareem_desc: "Professor Dr. Karim Hassan Hemam is a Professor of Community Organization at the Faculty of Social Work, Capital University, an Advisor to the Minister of Higher Education and Scientific Research for Student Activities, and the Director of the Leadership Preparation Institute in Helwan. Throughout his distinguished career, he has played a pivotal role in developing student activities and fostering youth leadership across Egyptian universities, contributing significantly to the preparation of future generations of leaders.",
+        doc_kareem_desc: "• Professor of Community Organization, Faculty of Social Work, Capital University<br>• Advisor to the Minister of Higher Education for Student Activities<br>• Director of the Leadership Development Institute (LPI)",
 
         doc_mohamed: "University Professor Mohamed Abdel Fattah",
         doc_mohamed_desc: "• Assistant Professor of Social Planning, Faculty of Social Work, Capital University<br>• Deputy Director of the Leadership Development Institute",
@@ -291,15 +295,19 @@ const texts = {
         o_mostafa: "Mr. Mostafa Kamel Shaheen",
         o_mostafa_desc: "Assistant Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.", //------------
         o_alaa: "Mr. Alaa Mohamed",
-        o_alaa_desc: "Institute Assistant Secretary - Supervision and Follow-up (Security and Cleaning Company)", //------------
+        o_alaa_desc: "Institute Assistant Secretary - Supervision and Follow-up (Security and Cleaning Company) – Leadership Development Institute", //------------
         o_hala: "Ms. Hala Ezzeldin",
-        o_hala_desc: "Director of Personnel Affairs",
+        o_hala_desc: "Director of Personnel Affairs – Leadership Development Institute",
         o_amr: "Mr. Amr Hassan",
-        o_amr_desc: "Personnel Affairs Employee",
+        o_amr_desc: "Personnel Affairs Employee - Leadership Development Institute",
         o_ahmed: "Mr. Ahmed Tawfik",
-        o_ahmed_desc: "Cultural Specialist at the Leadership Development Institute",
+        o_ahmed_desc: "Cultural Specialist - Leadership Development Institute",
         o_eman: "Ms. Eman Ramadan",
-        o_eman_desc: "Director of the Office of the Minister's Advisor for Student Activities", //------------
+        o_eman_desc: "Public Relations - Leadership Development Institute.", //------------
+        o_ahmed_ashraf: "Mr. Ahmed Ashraf",
+        o_ahmed_ashraf_desc: "Storekeeper – Leadership Development Institute",
+        o_ahmed_lam3e: "Mr. Ahmed Lam3e",
+        o_ahmed_lam3e_desc: "Public Relations - Leadership Development Institute", //------------
         logo__titleeee: "Leadership Institute",
         logo__slogan: "A homeland within a homeland",
 
@@ -311,7 +319,7 @@ const texts = {
         section3: "Join us to become a successful leader.",
 
         // === Partners Page (New) ===
-        partners_intro_title: "Effective Partnerships",
+        partners_intro_title: "Partnerships",
         partners_intro_desc: "The Leadership Institute believes that true success begins with cooperation. Therefore, it is keen to build effective partnerships with various institutions and bodies, especially government and national universities, which share the same vision and mission in supporting youth and building leaders.",
         partners_intro_desc2: "The Leadership Institute organizes various activities aimed at developing leadership skills among youth. These activities include workshops, training sessions, and community service programs that empower young individuals to take on leadership roles effectively.",
         partners_intro_title2: "Our Activities",
@@ -340,8 +348,8 @@ const texts = {
 
 
         Target_Groups: [
-            "1- University & institute Students",
-            "2- Faculty Members and Teaching Assistants",
+            "1- Students of Egyptian and Arab Universities and Institutes",
+            "2- Faculty Members and Academic Staff",
             "3- Administrative Staff and General Directors"
         ],
         prog1_title: "General Leadership Preparation Program",
@@ -364,7 +372,7 @@ const texts = {
 
         // === Footer Data ===
         Contact_Us: "Contact Us",
-        Address: "Leadership Institute, Ain Helwan – Abdullah Pasha Street",
+        Address: "Leadership Development Institute, Ain Helwan – Abdullah Pasha Street",
         Email: "ldi@mohesr.gov.eg",
         Phone: "228165187",
 
@@ -431,7 +439,7 @@ const texts = {
         hist_mission_head: "Our Mission",
         hist_mission_text: "Providing intensive training and educational programs to enhance national awareness and develop strategic leadership skills in the academic community.",
         zero_name: "Eng/ Yara Ashraf ",
-        zero_about: "Technical Team Supervisor. Teaching Assistant at the Faculty of Computer science and Artificial Intelligence, Capital University. Master's degree in Data Science from Faculty of Computer science and Artificial Intelligence, Capital University (formerly Helwan).",
+        zero_about: "Technical Team Supervisor, Teaching Assistant at the Faculty of Computers and Artificial Intelligence, Capital University and a Postgraduate Student in Data Science at the same faculty.",
         first_name: "Eyad Moneim ",
         first_about: "Student at Faculty of Computer Science, Helwan National Univeristy",
         second_name: "Mohamed Abdelmegeed",
@@ -581,6 +589,10 @@ function setLanguage(lang) {
         "o_alaa_desc",
         "o_eman",
         "o_eman_desc",
+        "o_ahmed_ashraf",
+        "o_ahmed_ashraf_desc",
+        "o_ahmed_lam3e",
+        "o_ahmed_lam3e_desc",
         "logo-title",
         "logo-slogan",
 
