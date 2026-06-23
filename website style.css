@@ -614,7 +614,9 @@ body.dark-mode .moon-icon {
     color: var(--text-secondary);
 }
 
+
 /* Programs Timeline Layout */
+
 .programs-timeline {
     display: flex;
     justify-content: space-between;
@@ -1774,6 +1776,7 @@ body.dark-mode .director-card {
     border-color: #ffcc00;
 }
 
+
 /* board lines spliters */
 
 .board-divider {
@@ -1808,7 +1811,6 @@ body.dark-mode .director-card {
 
 
 /* ========================= */
-
 
 
 /* ========== STRUCTURE PAGE ========== */
@@ -2561,6 +2563,12 @@ body.dark-mode .director-card {
         padding: 20px;
     }
 }
+
+
+/* ///////////////////////////////////////////////////////// */
+
+
+/* ///////////////////////////////////////////////////////// */
 
 
 /* ============================================================
@@ -3355,6 +3363,7 @@ body.dark-mode .glass-menu-overlay {
     color: var(--accent-gold);
 }
 
+
 /* =========================================
    BOARD CARD STYLES (No Images)
    ========================================= */
@@ -3384,7 +3393,8 @@ body.dark-mode .glass-menu-overlay {
     content: "";
     position: absolute;
     top: 0;
-    right: 0; /* RTL context */
+    right: 0;
+    /* RTL context */
     width: 4px;
     height: 100%;
     background: linear-gradient(to bottom, var(--accent), var(--accent-gold));
@@ -3438,18 +3448,92 @@ html[dir="ltr"] .board-card::before {
     z-index: 2;
 }
 
+
 /* Dark mode support */
+
 body.dark-mode .board-card {
     background: var(--card-glass);
 }
+
 body.dark-mode .board-card__title {
     color: var(--text-primary);
 }
+
 body.dark-mode .board-card__description {
     color: var(--text-secondary);
 }
 
+
 /* Mobile Responsiveness for board-card */
+
+@media (max-width: 768px) {
+    .board-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .board-card.director-card {
+        width: 90%;
+    }
+}
+
+transform: translateY(-8px);
+box-shadow: 0 24px 60px rgba(26,
+61,
+109,
+0.15);
+.board-card.director-card {
+    border: 2px solid var(--accent-gold);
+    width: 400px;
+    min-height: 280px;
+    height: auto;
+}
+
+.board-card__title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.board-card__line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin-bottom: 15px;
+    transition: width 0.4s ease;
+    z-index: 2;
+}
+
+.board-card:hover .board-card__line {
+    width: 100px;
+}
+
+.board-card__description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    z-index: 2;
+}
+
+
+/* Dark mode support */
+
+body.dark-mode .board-card {
+    background: var(--card-glass);
+}
+
+body.dark-mode .board-card__title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .board-card__description {
+    color: var(--text-secondary);
+}
+
+
+/* Mobile Responsiveness for board-card */
+
 @media (max-width: 768px) {
     .board-card {
         width: 90%;
