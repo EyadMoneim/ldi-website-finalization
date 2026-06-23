@@ -68,6 +68,7 @@ const texts = {
         txt_private_uni: "الجامعات الخاصة",
         txt_national_uni: "الجامعات الأهلية",
         tech_unis_txt: "الجامعات التكنولوجية",
+        m3ahed_txt: "المعاهد المصرية",
 
         // === About Page Data ===
         cd_who: "من نحن",
@@ -319,6 +320,7 @@ const texts = {
         txt_private_uni: "Private Universities",
         txt_national_uni: "National Universities",
         tech_unis_txt: "Technological Universities",
+        m3ahed_txt: "Egyptian Institutes",
 
         // === About Page Data ===
         cd_who: "Who We Are",
@@ -524,6 +526,7 @@ function setLanguage(lang) {
         "txt_gov_uni",
         "txt_private_uni",
         "txt_national_uni",
+        "m3ahed_txt",
         // About & Activity Page
         "cd_who",
         "cd_vision",
