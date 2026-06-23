@@ -3476,11 +3476,7 @@ body.dark-mode .board-card__description {
     }
 }
 
-transform: translateY(-8px);
-box-shadow: 0 24px 60px rgba(26,
-61,
-109,
-0.15);
+
 .board-card.director-card {
     border: 2px solid var(--accent-gold);
     width: 400px;
@@ -3541,5 +3537,310 @@ body.dark-mode .board-card__description {
     }
     .board-card.director-card {
         width: 90%;
+    }
+}
+
+/* ========== PREMIUM HERO REDESIGN ========== */
+.partners-hero-premium {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(26, 61, 109, 0.08) 0%, rgba(184, 134, 11, 0.03) 100%);
+}
+
+body.dark-mode .partners-hero-premium {
+    background: radial-gradient(circle at 50% 50%, rgba(13, 17, 35, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+}
+
+.premium-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: floatShape 15s ease-in-out infinite alternate;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(212, 175, 55, 0.15);
+    top: -100px;
+    right: -100px;
+}
+
+.shape-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(26, 61, 109, 0.15);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: -5s;
+}
+
+body.dark-mode .shape-1 { background: rgba(212, 175, 55, 0.1); }
+body.dark-mode .shape-2 { background: rgba(26, 61, 109, 0.2); }
+
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(26, 61, 109, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 61, 109, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+}
+
+body.dark-mode .bg-grid {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+@keyframes floatShape {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+.premium-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0 5%;
+    max-width: none;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.premium-text-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    padding: 60px 40px;
+    border-radius: 30px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+}
+
+body.dark-mode .premium-text-card {
+    background: rgba(13, 17, 35, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.premium-text-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px rgba(26, 61, 109, 0.15), inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+body.dark-mode .premium-text-card:hover {
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    position: relative;
+}
+
+.icon-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.3); opacity: 0; }
+}
+
+.icon-wrapper i {
+    font-size: 32px;
+    color: #fff;
+}
+
+.premium-text-card h1 {
+    font-size: 2.8rem;
+    color: var(--accent);
+    margin-bottom: 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+body.dark-mode .premium-text-card h1 {
+    color: var(--accent-gold);
+}
+
+.premium-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.premium-divider span {
+    width: 120px;
+    height: 4px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+    position: relative;
+}
+
+.premium-divider span::before, .premium-divider span::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.premium-divider span::before { left: -16px; }
+.premium-divider span::after { right: -16px; }
+
+.premium-text-card p {
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .premium-text-card h1 { font-size: 2rem; }
+    .premium-text-card p { font-size: 1rem; }
+    .premium-text-card { padding: 40px 20px; }
+}
+
+/* PC Layout for content wrapper */
+.premium-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 120px;
+    width: 90%;
+    margin: 0 auto; /* لحل مشكلة عدم التوسيط في الشاشات */
+}
+
+.premium-content-wrapper .premium-text-card {
+    flex: 0 1 800px; /* تحديد عرض مناسب بدلاً من التمدد العشوائي */
+    margin: 0;
+}
+
+
+.title-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.title-wrapper .premium-divider {
+    margin: 15px 0 0 0;
+}
+
+.premium-content-wrapper .premium-icon-side {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.premium-content-wrapper .icon-wrapper {
+    margin: 0;
+    width: 200px; /* للتحكم في حجم الدائرة الصفراء */
+    height: 200px;
+}
+
+.premium-content-wrapper .icon-wrapper i {
+    font-size: 80px; /* للتحكم في حجم الأيقونة التي بداخل الدائرة */
+}
+
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .premium-content-wrapper {
+        flex-direction: column-reverse;
+        gap: 40px;
+        width: 100%; /* في الموبايل يفضل أن يأخذ العرض بالكامل */
+    }
+    
+    .premium-content-wrapper .premium-text-card {
+        text-align: center;
+        max-width: 100%;
+        flex: 0 1 auto; /* لحل مشكلة الفراغ الكبير بالأسفل */
+        width: 100%;
+    }
+    html[dir="ltr"] .premium-content-wrapper .premium-text-card {
+        text-align: center;
+    }
+    
+    .premium-content-wrapper .icon-wrapper {
+        margin: 0 auto;
+        width: 130px; /* تصغير طفيف للوجو في الموبايل */
+        height: 130px;
+    }
+    .premium-content-wrapper .icon-wrapper i {
+        font-size: 50px;
+    }
+}
+
+/* Mobile Center Logo inside Navbar */
+.mobile-center-logo {
+    display: none; /* Hide on PC */
+}
+
+@media (max-width: 992px) {
+    .mobile-center-logo {
+        display: block;
+        width: 250px;
+        height: 40px;
+        background-color: var(--accent-gold); /* لون اللايت مود */
+        -webkit-mask-image: url('https://f49838zn07.ufs.sh/f/kOegvl1c9uGzHbkDzALjR1J7VPxLNWqKwltOQBi4Y9AmcreX');
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-image: url('https://f49838zn07.ufs.sh/f/kOegvl1c9uGzHbkDzALjR1J7VPxLNWqKwltOQBi4Y9AmcreX');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        top: 50%;
+        margin-top: -20px; /* Center vertically assuming 40px height */
+    }
+
+    body.dark-mode .mobile-center-logo {
+        background-color: var(--accent); /* لون الدارك مود */
     }
 }
