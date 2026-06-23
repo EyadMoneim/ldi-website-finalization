@@ -67,6 +67,7 @@ const texts = {
         txt_gov_uni: "الجامعات الحكومية",
         txt_private_uni: "الجامعات الخاصة",
         txt_national_uni: "الجامعات الأهلية",
+        tech_unis_txt: "الجامعات التكنولوجية",
 
         // === About Page Data ===
         cd_who: "من نحن",
@@ -82,9 +83,8 @@ const texts = {
             "ثم أصبح عام 1990م تحت إشراف وزارة التعليم العالي وتم تعديل المسمى إلى ( معهد إعداد القادة ).",
         ],
         Our_Vision: "نطمح أن يكون المعهد ممثلاً لوزارة التعليم العالي في تقديم برامج وخدمات معنية بإعداد وتطوير قادة الغد بمصر والعالم من خلال برامج وأنشطة تواكب متطلبات الخطط الإستراتيجية لجمهورية مصر العربية.",
-        Our_Mission:
-            "إتاحة الفرص ومجالات المشاركة الحقيقية ووضع وتنفيذ الشراكات مع الجهات ذات الإختصاص لإعداد وتأهيل القيادات الجامعية والمساهمة في بناء الشخصية الجامعية من خلال إكتشاف المواهب وصقلها وتأسيس وبناء منظومة من البرامج الإستثنائية للقيادة والإنشطة التنموية والتثقيفية والتوعوية لمواكبة التطور العالمي .",
-           
+        Our_Mission: "إتاحة الفرص ومجالات المشاركة الحقيقية ووضع وتنفيذ الشراكات مع الجهات ذات الإختصاص لإعداد وتأهيل القيادات الجامعية والمساهمة في بناء الشخصية الجامعية من خلال إكتشاف المواهب وصقلها وتأسيس وبناء منظومة من البرامج الإستثنائية للقيادة والإنشطة التنموية والتثقيفية والتوعوية لمواكبة التطور العالمي .",
+
 
         Target_Groups: [
             "1- طلاب الجامعات والمعاهد",
@@ -318,6 +318,7 @@ const texts = {
         txt_gov_uni: "Government Universities",
         txt_private_uni: "Private Universities",
         txt_national_uni: "National Universities",
+        tech_unis_txt: "Technological Universities",
 
         // === About Page Data ===
         cd_who: "Who We Are",
@@ -333,10 +334,9 @@ const texts = {
             "In 1990, the Institute was placed under the supervision of the Ministry of Higher Education and was subsequently renamed the Leadership Development Institute.",
         ],
         Our_Vision: "Our vision is for the Institute to be the Ministry of Higher Education’s leading representative in providing programs and services that prepare and empower the leaders of tomorrow in Egypt and globally, through innovative programs and activities aligned with the strategic objectives of the Arab Republic of Egypt.",
-        Our_Mission: 
-        "To create opportunities for meaningful engagement and foster strategic partnerships with specialized organizations to prepare and empower university leaders. We are committed to shaping well-rounded university personalities through talent identification and development, while establishing an integrated framework of distinguished leadership, developmental, educational, and awareness programs that align with global progress and emerging challenges.",
-        
-        
+        Our_Mission: "To create opportunities for meaningful engagement and foster strategic partnerships with specialized organizations to prepare and empower university leaders. We are committed to shaping well-rounded university personalities through talent identification and development, while establishing an integrated framework of distinguished leadership, developmental, educational, and awareness programs that align with global progress and emerging challenges.",
+
+
         Target_Groups: [
             "1- University & institute Students",
             "2- Faculty Members and Teaching Assistants",
@@ -600,6 +600,7 @@ function setLanguage(lang) {
         "hist_vision_text",
         "hist_mission_head",
         "hist_mission_text",
+        "tech_unis_txt",
 
         // ==================
 
@@ -631,7 +632,7 @@ function setLanguage(lang) {
         "o_amr_desc",
         "o_ahmed",
         "o_ahmed_desc",
-    
+
     ];
 
     ids.forEach((id) => {
