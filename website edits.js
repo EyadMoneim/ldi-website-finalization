@@ -131,7 +131,7 @@ const texts = {
 
         important_links: [
             { text: "وزارة التعليم العالي والبحث العلمي", href: "https://mohesr.gov.eg/", target: "_blank" },
-            { text: "المجلس الاعلى للجامعات", href: "https://scu.eg/", target: "_blank" },
+            { text: "المجلس الأعلى للجامعات", href: "https://scu.eg/", target: "_blank" },
             { text: "الفريق التقني", href: "tech_team.html", target: "_blank" },
             { text: "شركاؤنا", href: "clients_index.html", target: "_blank" },
 
