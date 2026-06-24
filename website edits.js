@@ -164,7 +164,7 @@ const texts = {
         doc_abdelaziz_desc: " الأستاذ الدكتور عبد العزيز قنصوه أكاديمي وسياسي مصري، يشغل منصب وزير التعليم العالي والبحث العلمي منذ عام 2026  و كما شغل سابقًا منصب محافظ الإسكندرية، كما تولى منصب رئيس جامعة الإسكندرية.",
         doc_kareem: "أ.د. كريم حسن همام",
         doc_kareem_desc: "• أستاذ تنظيم المجتمع بكلية الخدمة الاجتماعية بجامعة العاصمة<br>• مستشار وزير التعليم العالي للأنشطة الطلابية<br>• مدير معهد إعداد القادة",
-        doc_mohamed: "أ.م.د محمد عبدالفتاح",
+        doc_mohamed: "د. محمد عبدالفتاح",
         doc_mohamed_desc: "• أستاذ التخطيط الاجتماعي المساعد بكلية الخدمة الاجتماعية بجامعة العاصمة<br>• وكيل مدير معهد إعداد القادة",
         o_hamdy: "أ. حمدي طه عبدالعزيز",
         o_hamdy_desc: "أمين معهد اعداد القادة - وزارة التعليم العالي والبحث العلمي",
@@ -183,7 +183,7 @@ const texts = {
         o_ahmed_ashraf: " أ. احمد اشرف",
         o_ahmed_ashraf_desc: "أمين المخازن - معهد اعداد القادة.",
         o_ahmed_lam3e: " أ. احمد لمعي",
-        o_ahmed_lam3e_desc: "علاقات عامة - معهد اعداد القادة.",
+        o_ahmed_lam3e_desc: "معهد اعداد القادة.",
 
         logo__titleeee: "معهد إعداد القادة",
         logo__slogan: "بناء قائد.. بناء وطن",
@@ -287,7 +287,7 @@ const texts = {
         doc_kareem: "Prof. Dr. Kareem Hassan Hamam",
         doc_kareem_desc: "• Professor of Community Organization, Faculty of Social Work, Capital University<br>• Advisor to the Minister of Higher Education for Student Activities<br>• Director of the Leadership Development Institute (LPI)",
 
-        doc_mohamed: "University Professor Mohamed Abdel Fattah",
+        doc_mohamed: "Dr. Mohamed Abdel Fattah",
         doc_mohamed_desc: "• Assistant Professor of Social Planning, Faculty of Social Work, Capital University<br>• Deputy Director of the Leadership Development Institute",
         o_hamdy: "Mr. Hamdy Taha Abdelaziz",
         o_hamdy_desc: "Secretary of the Leadership Development Institute - Ministry of Higher Education and Scientific Research.",
@@ -307,7 +307,7 @@ const texts = {
         o_ahmed_ashraf: "Mr. Ahmed Ashraf",
         o_ahmed_ashraf_desc: "Storekeeper – Leadership Development Institute",
         o_ahmed_lam3e: "Mr. Ahmed Lam3e",
-        o_ahmed_lam3e_desc: "Public Relations - Leadership Development Institute", //------------
+        o_ahmed_lam3e_desc: "Leadership Development Institute", //------------
         logo__titleeee: "Leadership Institute",
         logo__slogan: "A homeland within a homeland",
 
